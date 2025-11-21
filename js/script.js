@@ -190,32 +190,135 @@ const swiperDown = new Swiper('.body-home-reviews__swiper-reverse', {
 
 
 function createScrollAnimation(target, vars) {
-    const el = gsap.utils.toArray(target)[0];
-    if (el && el.tagName === "IMG") {
-        el.addEventListener("load", () => ScrollTrigger.refresh());
-        if (el.complete) ScrollTrigger.refresh(); 
-    }
+	const el = gsap.utils.toArray(target)[0];
+	if (el && el.tagName === "IMG") {
+		el.addEventListener("load", () => ScrollTrigger.refresh());
+		if (el.complete) ScrollTrigger.refresh();
+	}
 
-    gsap.from(target, {
-        ...vars,
-        ease: "none",
-        scrollTrigger: {
-            trigger: target,
-            start: "top bottom",
-            end: "+=1000",
-            scrub: 1,
-            invalidateOnRefresh: true,  
-            refreshPriority: -1,       
-        
-        }
-    });
+	gsap.from(target, {
+		...vars,
+		ease: "none",
+		scrollTrigger: {
+			trigger: target,
+			start: "top bottom",
+			end: "+=1000",
+			scrub: 1,
+			invalidateOnRefresh: true,
+			refreshPriority: -1,
+
+		}
+	});
 }
 
-// Тепер просто викликай так:
 createScrollAnimation(".home-products__image-01", { yPercent: -20 });
 createScrollAnimation(".home-products__image-02", { xPercent: 20 });
 createScrollAnimation(".home-products__image-03", { yPercent: 20 });
 
+
+
+const gallerySections = document.querySelectorAll('.--galery-anim');
+
+if (gallerySections) {
+	gallerySections.forEach(gallerySection => {
+		const galleryImages = gallerySection.querySelectorAll('.--galery-image');
+		galleryImages.forEach(galleryImage => {
+			let galleryTl = gsap.timeline({
+				scrollTrigger: {
+					trigger: galleryImage,
+					start: "top bottom",
+					end: "top 10%",
+					scrub: 1,
+					invalidateOnRefresh: true,
+					refreshPriority: -1,
+				}
+			})
+
+			galleryTl.to(galleryImage, {
+				rotate: 0,
+				x: 0,
+				y: 0
+			})
+		});
+	});
+}
+
+
+const cards = document.querySelectorAll('.home-values__item');
+
+
+
+if (cards) {
+	cards.forEach(card => {
+
+		let hoverEnterCardsTl = gsap.timeline(
+			{
+				paused: true,
+			}
+		)
+		let hoverLeaveCardsTl = gsap.timeline()
+
+		const back = card.querySelector('.home-values__background'),
+			description = card.querySelector('.home-values__description'),
+			label = card.querySelector('.home-values__label')
+
+		const text = description.textContent.trim();
+
+		description.innerHTML = text
+			.split("")
+			.map(letter => `<span class="char">${letter}</span>`)
+			.join("");
+
+
+		const isDesktop = matchMedia('(hover: hover)').matches;
+
+
+		hoverEnterCardsTl
+			.to(description, {
+				autoAlpha: 1,
+				duration: .2,
+			})
+			.to(back, {
+				scale: 1.1,
+				duration: 1,
+			})
+			.to(label, {
+				letterSpacing: "5px",
+				duration: 1,
+			}, "<")
+			.from(card.querySelectorAll('.char'), {
+				opacity: 0,
+				y: 20,
+				duration: 0.05,
+				stagger: 0.03,
+				ease: "power2.out"
+			}, "<");
+
+
+
+		if (isDesktop) {
+			card.addEventListener('mouseenter', () => {
+				hoverEnterCardsTl.play()
+			});
+			card.addEventListener('mouseleave', () => {
+				hoverEnterCardsTl.reverse(1)
+			});
+		} else {
+			ScrollTrigger.create({
+				trigger: card,
+				start: "top bottom",
+				end: "center center",
+				onEnter: () => hoverEnterCardsTl.play(),
+				onEnterBack: () => hoverEnterCardsTl.play(),
+				// Якщо потрібно, щоб при виході timeline був зупинений — додам
+			});
+		}
+
+	
+
+	});
+
+}
 
 
 // A function that moves elements to other blocks depending on the size of the screen. (Used when adapting the page to different devices.)

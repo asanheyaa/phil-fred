@@ -220,6 +220,22 @@ body._lock {
   display: block;
 }
 
+.ibg {
+  position: relative;
+}
+.ibg img,
+.ibg video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
 .header {
   padding: 14px 0;
   position: absolute;
@@ -1405,7 +1421,7 @@ body._lock {
 @media (max-width: 1150px) {
   .body-home-reviews {
     background: #1d1d1d;
-    margin: 0 -15px;
+    margin: 0 -24px;
   }
 }
 .body-home-reviews__item {
@@ -1891,4 +1907,169 @@ body._lock {
 }
 .home-about__details b {
   font-weight: 700;
+}
+.home-values {
+  padding-top: 46px;
+  padding-bottom: 46px;
+  background: #1d1d1d;
+}
+@media (max-width: 1486px) {
+  .home-values {
+    padding-top: calc(60px + -14 * (100vw - 390px) / 1096);
+  }
+}
+@media (max-width: 1486px) {
+  .home-values {
+    padding-bottom: calc(76px + -30 * (100vw - 390px) / 1096);
+  }
+}
+.home-values__container {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 57px;
+}
+@media (max-width: 1486px) {
+  .home-values__container {
+    gap: calc(50px + 7 * (100vw - 390px) / 1096);
+  }
+}
+@media (max-width: 1200px) {
+  .home-values__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (min-width: 1200px) {
+  .home-values__info {
+    max-width: 14.0625rem;
+  }
+}
+@media (min-width: 1200px) {
+  .home-values__title {
+    max-width: 11.6875rem;
+  }
+}
+@media (max-width: 450px) {
+  .home-values__title {
+    max-width: 17.625rem;
+  }
+}
+.home-values__title span {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 39px;
+  line-height: 108%;
+  color: #e5193a;
+  display: block;
+  margin-bottom: 8px;
+}
+@media (max-width: 1486px) {
+  .home-values__title span {
+    font-size: calc(42px + -3 * (100vw - 390px) / 1096);
+  }
+}
+.home-values__items {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 1486px) {
+  .home-values__items {
+    gap: calc(24px + -4 * (100vw - 390px) / 1096);
+  }
+}
+@media (max-width: 900px) {
+  .home-values__items {
+    grid-template-columns: 328px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+.home-values__item {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding-top: 162px;
+}
+@media (max-width: 900px) {
+  .home-values__item {
+    min-height: 528px;
+  }
+}
+.home-values__background {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+.home-values__label {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  font-family: "Edo", sans-serif;
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 104%;
+  text-align: center;
+  color: #fff;
+}
+@media (max-width: 1486px) {
+  .home-values__label {
+    font-size: calc(46px + 6 * (100vw - 390px) / 1096);
+  }
+}
+.home-values__label-01 {
+  margin-bottom: 10.4375rem;
+}
+.home-values__label-02 {
+  margin-bottom: 7.875rem;
+}
+.home-values__label-03 {
+  margin-bottom: 100px;
+}
+.home-values__description {
+  position: relative;
+  z-index: 5;
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 130%;
+  visibility: hidden;
+  opacity: 0;
+  margin: 0 auto;
+  position: relative;
+}
+.home-values__description::before {
+  content: "";
+  display: inline-block;
+  height: 26px;
+  width: 26px;
+  background: url(../../img/main/quote-icon.png);
+  -webkit-transform: translate(0, 6px);
+      -ms-transform: translate(0, 6px);
+          transform: translate(0, 6px);
+}
+.home-values__description-01 {
+  max-width: 14.4375rem;
+  padding-bottom: 5.125rem;
+}
+.home-values__description-02 {
+  max-width: 225px;
+}
+.home-values__description-03 {
+  max-width: 15.375rem;
 }

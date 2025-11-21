@@ -115,6 +115,19 @@ body {
 		}
 	}
 }
+.ibg {
+	position: relative;
+	img,
+	video {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+		object-position: center;
+	}
+}
 
 //==========================================================================================================================================================
 
@@ -981,7 +994,7 @@ body {
 	}
 	@media (max-width: 1150px) {
 		background: #1d1d1d;
-		margin: 0 -15px;
+		margin: 0 -24px;
 	}
 	&__item {
 		display: flex;
@@ -1294,7 +1307,131 @@ body {
 	&__logo {
 	}
 }
-.button {
-}
-.button-italic {
+
+//==========================================================================================================================================================
+
+.home-values {
+	@include adaptiveValue(padding-top, 46, 60);
+	@include adaptiveValue(padding-bottom, 46, 76);
+	background: #1d1d1d;
+	&__container {
+		color: #fff;
+		display: flex;
+		@include adaptiveValue(gap, 57, 50);
+		@media (max-width:1200px) {
+			flex-direction: column;
+		}
+	}
+
+	&__info {
+		@media (min-width:1200px) {
+			max-width: 14.0625rem;
+			
+		}
+	}
+
+	&__title {
+		@media (min-width:1200px) {
+			max-width: 11.6875rem;
+			
+		}
+		@media (max-width:450px) {
+			max-width: 17.625rem;
+		}
+		span {
+			font-family: "Roboto Condensed", sans-serif;
+			font-style: italic;
+			font-weight: 500;
+			@include adaptiveValue(font-size, 39, 42);
+			line-height: 108%;
+			color: #e5193a;
+			display: block;
+			margin-bottom: 8px;
+		}
+	}
+
+	&__items {
+		flex: 1 1 auto;
+		display: flex;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		@include adaptiveValue(gap, 20, 24);
+		@media (max-width:900px) {
+			grid-template-columns: 328px;
+			justify-content: center;
+		}
+	}
+
+	&__item {
+		position: relative;
+		border-radius: 0.5rem;
+		overflow: hidden;
+		padding-top: 162px;
+		@media (max-width:900px){
+			min-height: 528px;
+		}
+	}
+
+	&__background {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		height: 100%;
+	}
+
+	&__label {
+		position: relative;
+		z-index: 5;
+		text-align: center;
+		font-family: "Edo", sans-serif;
+		font-weight: 400;
+		@include adaptiveValue(font-size, 52, 46);
+		line-height: 104%;
+		text-align: center;
+		color: #fff;
+	}
+
+	&__label-01 {
+		margin-bottom: 10.4375rem;
+	}
+	&__label-02 {
+		margin-bottom: 7.875rem;
+	}
+	&__label-03 {
+		margin-bottom: 100px;
+	}
+
+	&__description {
+		position: relative;
+		z-index: 5;
+		font-family: "Roboto Condensed", sans-serif;
+		font-style: italic;
+		font-weight: 500;
+		font-size: 1.25rem;
+		line-height: 130%;
+		visibility: hidden;
+		opacity: 0;
+		margin: 0 auto;
+		position: relative;
+		&::before {
+			content: "";
+			display: inline-block;
+			height: 26px;
+			width: 26px;
+			background: url(../../img/main/quote-icon.png);
+			transform: translate(0, 6px);
+		}
+	}
+
+	&__description-01 {
+		max-width: 14.4375rem;
+		padding-bottom: 5.125rem;
+	}
+	&__description-02 {
+		max-width: 225px;
+	}
+	&__description-03 {
+		max-width: 15.375rem;
+	}
 }
