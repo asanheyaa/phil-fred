@@ -251,70 +251,91 @@ const cards = document.querySelectorAll('.home-values__item');
 if (cards) {
 	cards.forEach(card => {
 
-		let hoverEnterCardsTl = gsap.timeline(
-			{
-				paused: true,
-			}
-		)
-		let hoverLeaveCardsTl = gsap.timeline()
+		function initCardAnimation(card) {
 
-		const back = card.querySelector('.home-values__background'),
-			description = card.querySelector('.home-values__description'),
-			label = card.querySelector('.home-values__label')
+			let hoverEnterCardsTl = gsap.timeline({ paused: true });
 
-		const text = description.textContent.trim();
+			const back = card.querySelector('.home-values__background'),
+				description = card.querySelector('.home-values__description'),
+				label = card.querySelector('.home-values__label');
 
-		description.innerHTML = text
-			.split("")
-			.map(letter => `<span class="char">${letter}</span>`)
-			.join("");
+			// Split description text into individual characters
+			const text = description.textContent.trim();
+			description.innerHTML = text
+				.split("")
+				.map(letter => `<span class="char">${letter}</span>`)
+				.join("");
 
-
-		const isDesktop = matchMedia('(hover: hover)').matches;
-
-
-		hoverEnterCardsTl
-			.to(description, {
-				autoAlpha: 1,
-				duration: .2,
-			})
-			.to(back, {
-				scale: 1.1,
-				duration: 1,
-			})
-			.to(label, {
-				letterSpacing: "5px",
-				duration: 1,
-			}, "<")
-			.from(card.querySelectorAll('.char'), {
-				opacity: 0,
-				y: 20,
-				duration: 0.05,
-				stagger: 0.03,
-				ease: "power2.out"
-			}, "<");
+			// Base timeline animation (shared for hover and scroll)
+			hoverEnterCardsTl
+				.to(description, { autoAlpha: 1, duration: 0.2 })
+				.to(back, { scale: 1.1, duration: 1 })
+				.to(label, { letterSpacing: "5px", duration: 1 }, "<")
+				.from(card.querySelectorAll('.char'), {
+					opacity: 0,
+					y: 20,
+					duration: 0.05,
+					stagger: 0.03,
+					ease: "power2.out"
+				}, "<");
 
 
+			// MatchMedia to switch between desktop hover & mobile scroll behavior
+			let mediaQuery = gsap.matchMedia();
 
-		if (isDesktop) {
-			card.addEventListener('mouseenter', () => {
-				hoverEnterCardsTl.play()
-			});
-			card.addEventListener('mouseleave', () => {
-				hoverEnterCardsTl.reverse(1)
-			});
-		} else {
-			ScrollTrigger.create({
-				trigger: card,
-				start: "top bottom",
-				end: "center center",
-				onEnter: () => hoverEnterCardsTl.play(),
-				onEnterBack: () => hoverEnterCardsTl.play(),
-				// Якщо потрібно, щоб при виході timeline був зупинений — додам
+			mediaQuery.add({
+				desktop: "(hover: hover)",
+				touch: "(hover: none)"
+			}, (context) => {
+
+				let { desktop, touch } = context.conditions;
+
+
+				// DESKTOP MODE (hover animation)
+				if (desktop) {
+
+					// Remove existing ScrollTrigger if switching from mobile
+					ScrollTrigger.getById(card.dataset.stId)?.kill();
+
+					function onEnter() { hoverEnterCardsTl.play(); }
+					function onLeave() { hoverEnterCardsTl.reverse(); }
+
+					// Attach hover listeners
+					card.addEventListener("mouseenter", onEnter);
+					card.addEventListener("mouseleave", onLeave);
+
+					// Clean up when switching out of desktop mode
+					return () => {
+						card.removeEventListener("mouseenter", onEnter);
+						card.removeEventListener("mouseleave", onLeave);
+					};
+				}
+
+
+				// TOUCH MODE (mobile/tablet scroll trigger)
+				if (touch) {
+
+					let st = ScrollTrigger.create({
+						id: card.dataset.stId,    // unique id to remove later
+						trigger: card,
+						start: "top bottom",
+						end: "center center",
+						onEnter: () => hoverEnterCardsTl.play(),
+						onEnterBack: () => hoverEnterCardsTl.play(),
+					});
+
+					// Clean up when leaving touch mode
+					return () => st.kill();
+				}
 			});
 		}
 
-	
+
+		// Initialize animations for all cards
+		// Assign unique ScrollTrigger ID to each card
+		card.dataset.stId = "st-" + Math.random();
+		initCardAnimation(card);
+
 
 	});
 
