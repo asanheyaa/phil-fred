@@ -48,7 +48,7 @@
                 </button>
             </div>
         </header>
-        <!-- <main class="page">
+        <main class="page">
             <section class='hero-home' aria-labelledby='hero-home-title'>
                 <div class="hero-home__wrapper">
                     <div class='hero-home__container'>
@@ -631,12 +631,12 @@
                     </div>
                 </div>
             </section>
-        </main> -->
-        <footer class="footer">
+        </main>
+        <footer class="footer footer-dark">
             <div class="footer__container">
                 <div class="footer__body">
                     <div class="info-footer">
-                        <div class="info-footer__back">
+                        <div class="info-footer__back ibg">
                             <img src="img/footer/circle-label.png" alt="circle-label">
                         </div>
                         <div class="info-footer__body">
@@ -709,7 +709,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="info-footer__copy">
+                            <div class="info-footer__copy" data-da=".footer__body,992,last">
                                 © 2025 Phil & Fred Pizzeria.
                             </div>
                         </div>
@@ -719,15 +719,15 @@
                             Trouver UN POINT DE VENTE proche de moi
                         </h3>
                         <form action="#" class="actions-footer__form">
-                            <input type="text" class="actions-footer__input">
                             <div class="actions-footer__body">
+                                <input placeholder="Entrez votre adresse ou code postal" type="text" class="actions-footer__input">
                                 <div class="actions-footer__icon">
                                     <svg width="20" height="20">
                                         <use xlink:href='img/main/icons-sprite.svg#search-icon'></use>
                                     </svg>
                                 </div>
                             </div>
-                            <button type="submit" class="actions-footer__button button button-alt">
+                            <button type="submit" class="actions-footer__button button button-diff">
                                 <span>
                                     géolocaliser
                                 </span>
@@ -738,7 +738,8 @@
                         </form>
                     </div>
                     <div class="footer__logo">
-                        <img src="img/main/logo-dark.svg" alt="logo">
+                        <img class="footer__logo-dark" src="img/main/logo-dark.svg" alt="logo">
+                        <img class="footer__logo-white" src="img/main/logo-white.svg" alt="logo">
                     </div>
                 </div>
             </div>
