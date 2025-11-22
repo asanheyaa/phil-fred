@@ -156,14 +156,17 @@ body {
 //==========================================================================================================================================================
 
 .header {
-	padding: 14px 0;
+	padding: 0.875rem 0;
 	position: absolute;
 	width: 100%;
 	top: 0;
 	left: 0;
 	z-index: 100;
-	@media (max-width: 767.98px) {
+	@media (max-width: 47.9988rem) {
 		border-bottom: 1px solid rgba(255, 255, 255, 0.59);
+	}
+	&-bb {
+		border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.59);
 	}
 	&-white {
 		& .header-menu__link {
@@ -429,17 +432,15 @@ body {
 			}
 			.hero-home__pizza-image {
 				margin-left: 0;
-		
-				transform: translate(-50%, -50%) scale(.9);
+
+				transform: translate(-50%, -50%) scale(0.9);
 				opacity: 0;
 				visibility: hidden;
 				@media (max-width: 767.98px) {
-				
 					transform: translate(-65%, 0);
 				}
-			
 			}
-			
+
 			.hero-home__decor {
 				&::after {
 					left: -50vw;
@@ -1470,9 +1471,6 @@ body {
 }
 
 //==========================================================================================================================================================
-main {
-	// display: none;
-}
 
 .footer {
 	overflow: hidden;
@@ -1775,7 +1773,139 @@ main {
 	&__button {
 	}
 }
-.button {
+
+//==========================================================================================================================================================
+
+.about-story {
+	@include adaptiveValue(padding-top, 80, 40);
+	@include adaptiveValue(padding-bottom, 120, 85);
+	// .about-story__container
+
+	&__container {
+	}
+
+	// .about-story__title
+
+	&__title {
+		font-family: "Roboto Condensed", sans-serif;
+		font-style: italic;
+		font-weight: 500;
+		@include adaptiveValue(font-size, 22, 17);
+		line-height: 127%;
+		text-align: center;
+		color: #636363;
+		margin: 0 auto;
+		@include adaptiveValue(margin-bottom, 80, 48);
+		max-width: 34.375rem;
+	}
+
+	// .about-story__body
+
+	&__body {
+		max-width: 50rem;
+		span {
+			font-family: "Roboto Condensed", sans-serif;
+			font-weight: 500;
+			@include adaptiveValue(font-size, 39, 32);
+			line-height: 108%;
+			color: #e5193a;
+		}
+
+		p{
+			&.mb-medium{
+				margin-bottom: 3.5rem;
+			}
+		}
+	}
+
+	// .about-story__bio
+
+	&__bio {
+		@include adaptiveValue(margin-top, 136, 56);
+		display: grid;
+		grid-template-columns: 58.88% 1fr;
+	}
+
+	// .about-story__names
+
+	&__names {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		@include adaptiveValue(padding-block, 24, 16);
+	}
+
+	// .about-story__name
+
+	&__name {
+		font-family: "Edo", sans-serif;
+font-weight: 400;
+@include adaptiveValue(font-size, 19, 14);
+line-height: 158%;
+letter-spacing: 0.06em;
+color: #1d1d1d;
+	}
+
+	// .about-story__photo
+
+	&__photo {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 2;
+		grid-row-end: 3;
+
+	}
+
+	// .about-story__info
+
+	&__info {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		grid-row-start: 2;
+		grid-row-end: 3;
+	}
+
+	// .about-story__label
+
+	&__label {
+	}
+
+	// .about-story__more
+
+	&__more {
+	}
+
+	// .about-story__wrapper
+
+	&__wrapper {
+	}
+
+	// .about-story__decor
+
+	&__decor {
+	}
+
+	// .about-story__image
+
+	&__image {
+	}
+
+	// .about-story__image-01
+
+	&__image-01 {
+	}
+
+	// .about-story__image-02
+
+	&__image-02 {
+	}
+
+	// .about-story__image-03
+
+	&__image-03 {
+	}
 }
-.button-alt {
+.title {
+}
+.title-alt {
 }

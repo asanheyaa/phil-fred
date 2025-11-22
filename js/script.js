@@ -13,216 +13,179 @@ burgerMenu.addEventListener('click', (e) => {
 
 const firstSwithButton = document.querySelector('.hero-home__switcher-01'),
 	secondSwitchButton = document.querySelector('.hero-home__switcher-02'),
-	 header = document.querySelector('.header');
-
-	
+	header = document.querySelector('.header');
 
 
-let homeHeroTl = gsap.timeline({
-	paused: true,
-	onReverseComplete: () => {
-		gsap.to('.hero-home__slide-01 .hero-home__pizza-image', {
-			scale: 1,
-			autoAlpha:1,
-			duration: .5
-		})
-		
-		gsap.set('.hero-home__slide-02 .hero-home__pizza-image', {
-			scale: .9,
-			autoAlpha:0
-		})
-		header.classList.add('header-dark')
-		header.classList.remove('header-white')
-	},
-	onComplete: () => {
-		gsap.to('.hero-home__slide-02 .hero-home__pizza-image', {
-			scale: 1,
-			autoAlpha: 1,
-			duration: .5
-		})
-		gsap.to('.header__logo-dark-anim', {
-			autoAlpha: 1,
-			duration: .5
-		})
-		gsap.set('.hero-home__slide-01 .hero-home__pizza-image', {
-			scale: .9,
-			autoAlpha: 0,
-		})
 
-		header.classList.remove('header-dark')
-		header.classList.add('header-white')
+if (firstSwithButton) {
 
-	},
-});
-homeHeroTl.to('.hero-home__body', {
-	x: '0%',
-	duration: 1
-})
-	.to('.hero-home__slide-01', {
-		autoAlpha: 0,
+	let homeHeroTl = gsap.timeline({
+		paused: true,
+		onReverseComplete: () => {
+			gsap.to('.hero-home__slide-01 .hero-home__pizza-image', {
+				scale: 1,
+				autoAlpha: 1,
+				duration: .5
+			})
+
+			gsap.set('.hero-home__slide-02 .hero-home__pizza-image', {
+				scale: .9,
+				autoAlpha: 0
+			})
+			header.classList.add('header-dark')
+			header.classList.remove('header-white')
+		},
+		onComplete: () => {
+			gsap.to('.hero-home__slide-02 .hero-home__pizza-image', {
+				scale: 1,
+				autoAlpha: 1,
+				duration: .5
+			})
+			gsap.to('.header__logo-dark-anim', {
+				autoAlpha: 1,
+				duration: .5
+			})
+			gsap.set('.hero-home__slide-01 .hero-home__pizza-image', {
+				scale: .9,
+				autoAlpha: 0,
+			})
+
+			header.classList.remove('header-dark')
+			header.classList.add('header-white')
+
+		},
+	});
+	homeHeroTl.to('.hero-home__body', {
+		x: '0%',
 		duration: 1
-	}, "<")
-	.to('.hero-home__slide-02', {
-		autoAlpha: 1,
-		duration: 1
-	}, "<")
-
-firstSwithButton.addEventListener('click', (e) => {
-	homeHeroTl.play()
-})
-
-
-secondSwitchButton.addEventListener('click', (e) => {
-	homeHeroTl.reverse()
-	gsap.to('.header__logo-dark-anim', {
-		autoAlpha: 0,
-		duration: .5
 	})
-})
+		.to('.hero-home__slide-01', {
+			autoAlpha: 0,
+			duration: 1
+		}, "<")
+		.to('.hero-home__slide-02', {
+			autoAlpha: 1,
+			duration: 1
+		}, "<")
 
+	firstSwithButton.addEventListener('click', (e) => {
+		homeHeroTl.play()
+	})
+
+
+	secondSwitchButton.addEventListener('click', (e) => {
+		homeHeroTl.reverse()
+		gsap.to('.header__logo-dark-anim', {
+			autoAlpha: 0,
+			duration: .5
+		})
+	})
+
+}
 
 
 // running stroke
 const crawlers = document.querySelectorAll(".crawl");
 
-crawlers.forEach(crawler => {
-	const totalWidth = crawler.scrollWidth / 2;
-	ScrollTrigger.create({
-		animation: gsap.fromTo(crawler, {
-			x: 0
-		}, {
-			x: -totalWidth * .1,   // рухаємо в 4 рази далі
-			ease: "none"
-		}),
-		trigger: crawler,
-		start: "bottom bottom",
-		end: "top top",           // скролимо в 4 рази довше
-		scrub: 1,                  // ідеальна прив’язка
-		invalidateOnRefresh: true,
-		// При скролі вниз → текст вправо (бо ми рухаємо контейнер вліво, а візуально текст іде вправо)
-		// При скролі вгору → текст вліво — працює автоматично!
+if (crawlers) {
+	crawlers.forEach(crawler => {
+		const totalWidth = crawler.scrollWidth / 2;
+		ScrollTrigger.create({
+			animation: gsap.fromTo(crawler, {
+				x: 0
+			}, {
+				x: -totalWidth * .1,
+				ease: "none"
+			}),
+			trigger: crawler,
+			start: "bottom bottom",
+			end: "top top",
+			scrub: 1,
+			invalidateOnRefresh: true,
+		});
+
+	});
+}
+
+
+if (typeof Swiper !== 'undefined') {
+	const swiperPromotions = new Swiper('.home-promotions__swiper', {
+		loop: true,
+		autoplay: {
+			delay: 5000,
+		},
+		slidesPerView: 1,
+		spaceBetween: 30,
+		speed: 500,
+		pagination: {
+			el: '.home-promotions__swiper-pagination',
+		},
+
+
 	});
 
-});
+	const swiperUp = new Swiper('.body-home-reviews__swiper-up', {
+		direction: 'vertical',
+		loop: true,
+		speed: 6000, // швидкість плавного руху (чим більше – тим повільніше)
+		spaceBetween: 8,
+		freeMode: {
+			enabled: true,
+			momentum: false,
+		},
+		autoplay: {
+			delay: 0,          // без затримки
+			disableOnInteraction: false,
+		},
+		slidesPerView: 2,
+		allowTouchMove: false,
+		simulateTouch: false,
+		allowTouchMove: false,
+		touchStartPreventDefault: false,
+		breakpoints: {
 
-
-
-
-
-const swiperPromotions = new Swiper('.home-promotions__swiper', {
-	loop: true,
-	autoplay: {
-		delay: 5000,
-	},
-	slidesPerView: 1,
-	spaceBetween: 30,
-	speed: 500,
-	pagination: {
-		el: '.home-promotions__swiper-pagination',
-	},
-
-
-});
-
-const swiperUp = new Swiper('.body-home-reviews__swiper-up', {
-	direction: 'vertical',
-	loop: true,
-	speed: 6000, // швидкість плавного руху (чим більше – тим повільніше)
-	spaceBetween: 8,
-	freeMode: {
-		enabled: true,
-		momentum: false,
-	},
-	autoplay: {
-		delay: 0,          // без затримки
-		disableOnInteraction: false,
-	},
-	slidesPerView: 2,
-	allowTouchMove: false,
-	simulateTouch: false,
-	allowTouchMove: false,
-	touchStartPreventDefault: false,
-	breakpoints: {
-
-		768: {
-			spaceBetween: 24,
+			768: {
+				spaceBetween: 24,
+			}
 		}
-	}
-});
+	});
 
-const swiperDown = new Swiper('.body-home-reviews__swiper-reverse', {
-	direction: 'vertical',
-	loop: true,
-	speed: 6000,
-	spaceBetween: 8,
-	freeMode: {
-		enabled: true,
-		momentum: false,
-	},
-	autoplay: {
-		delay: 0,
-		reverseDirection: true, // рух у зворотному напрямку
-		disableOnInteraction: false,
-	},
-	slidesPerView: 2,
-	allowTouchMove: false,
-	simulateTouch: false,
-	allowTouchMove: false,
-	touchStartPreventDefault: false,
-	breakpoints: {
+	const swiperDown = new Swiper('.body-home-reviews__swiper-reverse', {
+		direction: 'vertical',
+		loop: true,
+		speed: 6000,
+		spaceBetween: 8,
+		freeMode: {
+			enabled: true,
+			momentum: false,
+		},
+		autoplay: {
+			delay: 0,
+			reverseDirection: true, // рух у зворотному напрямку
+			disableOnInteraction: false,
+		},
+		slidesPerView: 2,
+		allowTouchMove: false,
+		simulateTouch: false,
+		allowTouchMove: false,
+		touchStartPreventDefault: false,
+		breakpoints: {
 
-		768: {
-			spaceBetween: 24,
+			768: {
+				spaceBetween: 24,
+			}
 		}
-	}
-});
+	});
+}
 
 
+//home products parallax
 
-// let productTL1 = gsap.timeline({
-// 	scrollTrigger: {
-// 		trigger: '.home-products__image-01',
-// 		start: 'top top',
-// 		scrub: 1,
-// 		end: '+=1000',
-// 		// invalidateOnRefresh: true
-// 	},
-// })
+const imageOne = document.querySelector('.home-products__image-01'),
+	imageTwo = document.querySelector('.home-products__image-02'),
+	imageThree = document.querySelector('.home-products__image-03');
 
-// productTL1.from('.home-products__image-01', {
-// 	yPercent: -70
-// })
-
-// let productTL2 = gsap.timeline({
-// 	scrollTrigger: {
-// 		trigger: '.home-products__image-02',
-// 		start: 'top center',
-// 		scrub: 1,
-// 		end: '+=1000',
-// 		// invalidateOnRefresh: true
-// 	},
-// })
-
-// productTL2.from('.home-products__image-02', {
-// 	xPercent: 20
-// })
-
-
-// let productTL3 = gsap.timeline({
-// 	scrollTrigger: {
-// 		trigger: '.home-products__image-03',
-// 		start: 'top center',
-// 		scrub: 1,
-// 		end: '+=1000',
-// 		// invalidateOnRefresh: true
-// 	},
-// })
-
-// productTL3.from('.home-products__image-03', {
-// 	yPercent: 20
-// })
-
-
+if (imageOne){
 
 function createScrollAnimation(target, vars) {
 	const el = gsap.utils.toArray(target)[0];
@@ -246,11 +209,11 @@ function createScrollAnimation(target, vars) {
 	});
 }
 
-createScrollAnimation(".home-products__image-01", { yPercent: -20 });
-createScrollAnimation(".home-products__image-02", { xPercent: 20 });
-createScrollAnimation(".home-products__image-03", { yPercent: 20 });
+	createScrollAnimation(imageOne, { yPercent: -20 });
+	createScrollAnimation(imageTwo, { xPercent: 20 });
+	createScrollAnimation(imageThree, { yPercent: 20 });
 
-
+}
 
 const gallerySections = document.querySelectorAll('.--galery-anim');
 
