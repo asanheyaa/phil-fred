@@ -340,6 +340,46 @@ if (cards) {
 }
 
 
+// ====================================================================================================================
+// About page
+
+
+// video Player
+const videoPlayers = document.querySelectorAll('[data-video-player]');
+
+if (videoPlayers) {
+	videoPlayers.forEach(videoPlayer => {
+		const player = new Plyr(videoPlayer, {
+			controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+			 clickToPlay: true
+		});
+	});
+}
+
+
+
+// story gallery
+
+const aboutImages = document.querySelectorAll('.about-story__image');
+
+if (aboutImages) {
+	aboutImages.forEach(aboutImage => {
+		let aboutGalleryTl = gsap.timeline({
+			scrollTrigger: {
+				trigger: aboutImage,
+				start: "top bottom",
+				end: '+=500',
+				scrub: 1,
+				invalidateOnRefresh: true,
+				refreshPriority: -1,
+			}
+		})
+			.to(aboutImage, {
+				rotate: +aboutImage.dataset.rotateValue,
+			})
+	});
+}
+
 // A function that moves elements to other blocks depending on the size of the screen. (Used when adapting the page to different devices.)
 function dynamicAdaptiv() {
 	class DynamicAdapt {

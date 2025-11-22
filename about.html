@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Phil & Fred pizzeria<">
+    <meta name="description" content="Phil & Fred pizzeria">
     <link
         href="https://fonts.googleapis.com/css?family=Roboto+Condensed:regular,500,600,700,500italic,700italic&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,500,600&display=swap" rel="stylesheet" />
 
-    <link rel='stylesheet' href='css/swiper.min.css'>
+    <link rel='stylesheet' href='css/plyr.min.css'>
     <link rel="stylesheet" href="css/main-styles.css">
     <title>Phil & Fred pizzeria</title>
 </head>
 
 <body>
     <div class="wrapper">
-        <header class="header header-dark header-bb">
+        <header class="header header-white header-bb">
             <div class="header__container">
-                <a href="/" aria-label="home-page link" class="header__logo header__logo-dh header__logo-sw">
-                    <img class="header__logo-dark header__logo-dark-anim" src="img/main/logo-dark.svg" alt="logo-dark">
+                <a href="/" aria-label="home-page link" class="header__logo header__logo-sw">
+                    <img class="header__logo-dark" src="img/main/logo-dark.svg" alt="logo-dark">
                     <img class="header__logo-white" src="img/main/logo-white.svg" alt="logo-white">
                 </a>
                 <nav class='header-menu'>
@@ -48,10 +48,18 @@
             </div>
         </header>
         <main class="page">
-            <section class='hero-about'>
+            <div class='hero-about'>
+                <div class="hero-about__video ibg">
+                    <video data-video-player playsinline controls>
+                        <source src="videos/baking.mp4" type="video/mp4" />
+                    </video>
+                </div>
 
-            </section>
+            </div>
             <section class='about-story' aria-labelledby='about-story-title'>
+                <div class="about-story__back ibg">
+                    <img src="img/about-page/story/story-back.png" loading="lazy" alt="story-back">
+                </div>
                 <div class='about-story__container'>
                     <h1 class="about-story__title" id="about-story-title">
                         Nous existons pour dynamiser l’univers de la pizza en restaurant
@@ -93,7 +101,7 @@
                             <img src="img/about-page/story/photo.png" loading="lazy" alt="photo">
                         </div>
                         <div class="about-story__info">
-                            <h2 class="about-story__label title title-alt">
+                            <h2 class="about-story__label">
                                 Selon nous
                             </h2>
                             <div class="about-story__more">
@@ -108,48 +116,62 @@
                         </div>
                     </div>
                     <div class="about-story__wrapper">
-                        <div class="about-story__body">
-                            <p>
-                                <span>Notre pizzeria</span> est un unique amalgame de modernité, diversité et d’élégance. Effectivement, nous
+                        <div class="about-story__body --image-wrapper">
+                            <p class="mb-small">
+                                <span>Notre pizzeria</span> est un unique amalgame de modernité, diversité et
+                                d’élégance. Effectivement, nous
                                 avons créé une ambiance
                                 décontractée dans un style lounge et urbain.
                             </p>
-                            <p>
-                                Notre concept repose principalement sur la livraison et le comptoir pour emporter. Par contre, vous pouvez tout
+                            <p class="mb-big">
+                                Notre concept repose principalement sur la livraison et le comptoir pour emporter. Par
+                                contre, vous pouvez tout
                                 de même
-                                venir déguster votre pizza sur le pouce au restaurant : quelques places assises aux tables et au comptoir sont
+                                venir déguster votre pizza sur le pouce au restaurant : quelques places assises aux
+                                tables et au comptoir sont
                                 disponibles.
                             </p>
-                            <p>
-                                <span>En plus</span> de nos pizzas fraîches, nous proposons également une sélection de pizzas artisanales
+                            <p class="mb-small">
+                                <span>En plus</span> de nos pizzas fraîches, nous proposons également une sélection de
+                                pizzas artisanales
                                 surgelées, préparées avec
-                                les mêmes ingrédients de qualité que dans notre restaurant. Ainsi, vous pouvez retrouver l’expérience de notre
+                                les mêmes ingrédients de qualité que dans notre restaurant. Ainsi, vous pouvez retrouver
+                                l’expérience de notre
                                 pizzeria
                                 directement à la maison, quand vous le souhaitez.
                             </p>
                             <p>
-                                Nous complétons cette offre avec une gamme de produits d’épicerie fine importés d’Italie afin de partager avec
+                                Nous complétons cette offre avec une gamme de produits d’épicerie fine importés d’Italie
+                                afin de partager avec
                                 vous
                                 toute la richesse des saveurs italiennes.
                             </p>
                         </div>
                         <div class="about-story__decor">
-                            <div class="about-story__image about-story__image-01">
-                                <img src="img/about-page/story/story-image_01.png" loading="lazy" alt="">
+                            <div class="about-story__column">
+                                <div class="about-story__image about-story__image-01"
+                                    data-da=".--image-wrapper,991.98,first" data-rotate-value="-18">
+                                    <img src="img/about-page/story/story-image_01.png" loading="lazy" alt="story-image">
+                                </div>
+                                <div class="about-story__image about-story__image-03"
+                                    data-da=".--image-wrapper,991.98,last" data-rotate-value="-8">
+                                    <img src="img/about-page/story/story-image_03.jpg" loading="lazy" alt="story-image">
+                                </div>
+
                             </div>
-                            <div class="about-story__image about-story__image-02">
-                                <img src="img/about-page/story/story-image_02.png" loading="lazy" alt="">
-                            </div>
-                            <div class="about-story__image about-story__image-03">
-                                <img src="img/about-page/story/story-image_03.png" loading="lazy" alt="">
+                            <div class="about-story__column">
+                                <div class="about-story__image about-story__image-02"
+                                    data-da=".--image-wrapper,991.98,2" data-rotate-value="18">
+                                    <img src="img/about-page/story/story-image_02.jpg" loading="lazy" alt="story-image">
+                                </div>
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
             </section>
         </main>
-        <footer class="footer">
+        <footer class="footer footer-dark">
             <div class="footer__container">
                 <div class="footer__body">
                     <div class="info-footer">
@@ -264,9 +286,9 @@
             </div>
         </footer>
     </div>
+    <script src="js/plyr.js"></script>
     <script src="js/gsap.min.js"></script>
     <script src="js/gsap-scrollTrigger.min.js"></script>
-    <script src='js/swiper.min.js'></script>
     <script src="js/script.js"></script>
 
 </body>
