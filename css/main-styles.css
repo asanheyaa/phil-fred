@@ -131,6 +131,27 @@ body._lock {
   }
 }
 
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 .button {
   border: 0.125rem solid #fff;
   border-radius: 8px;
@@ -178,6 +199,11 @@ body._lock {
 }
 .button-diff svg {
   color: #e5193a;
+}
+@media (any-hover: hover) {
+  .button-diff.button.button-diff-dark-mode:hover {
+    color: #e5193a;
+  }
 }
 
 .label {
@@ -264,6 +290,12 @@ body._lock {
   color: #fff;
   border-color: #fff;
 }
+@media (any-hover: hover) {
+  .header-white .header-menu__link.button:hover {
+    border-color: #e5193a;
+    color: #e5193a;
+  }
+}
 .header-dark .header-menu__link {
   color: #1d1d1d;
 }
@@ -310,6 +342,15 @@ body._lock {
 }
 .header__logo-sd .header__logo-dark {
   display: block;
+}
+.header__logo .header__logo-dark-anim.header__logo-dark {
+  opacity: 0;
+  visibility: hidden;
+}
+@media (min-width: 767.98px) {
+  .header__logo .header__logo-dark-anim.header__logo-dark {
+    display: block;
+  }
 }
 @media (max-width: 450px) {
   .header__logo {
@@ -473,10 +514,11 @@ body._lock {
 
 .hero-home {
   position: relative;
+  background: #1d1d1d;
 }
 .hero-home__wrapper {
   background: #1d1d1d;
-  margin-bottom: -30px;
+  margin-bottom: -1.875rem;
 }
 .hero-home__container {
   position: relative;
@@ -492,6 +534,9 @@ body._lock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transform: translate(-100%, 0);
+      -ms-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
 }
 .hero-home__slide {
   -webkit-box-flex: 0;
@@ -509,9 +554,6 @@ body._lock {
   }
 }
 .hero-home__slide-02 {
-  -webkit-transform: translate(100%, 0);
-      -ms-transform: translate(100%, 0);
-          transform: translate(100%, 0);
   opacity: 0;
   visibility: hidden;
 }
@@ -549,27 +591,17 @@ body._lock {
 }
 .hero-home__slide-reverse .hero-home__pizza-image {
   margin-left: 0;
-  min-height: 824px;
-  aspect-ratio: 1/1;
-  -webkit-transform: translate(-66.5%, 0);
-      -ms-transform: translate(-66.5%, 0);
-          transform: translate(-66.5%, 0);
-  top: 7%;
-}
-.hero-home__slide-reverse .hero-home__pizza-image img {
-  height: 100%;
+  -webkit-transform: translate(-50%, -50%) scale(0.9);
+      -ms-transform: translate(-50%, -50%) scale(0.9);
+          transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  visibility: hidden;
 }
 @media (max-width: 767.98px) {
   .hero-home__slide-reverse .hero-home__pizza-image {
-    top: -3%;
-    -webkit-transform: translate(-75%, 0);
-        -ms-transform: translate(-75%, 0);
-            transform: translate(-75%, 0);
-  }
-}
-@media (max-width: 430px) {
-  .hero-home__slide-reverse .hero-home__pizza-image {
-    top: -5%;
+    -webkit-transform: translate(-65%, 0);
+        -ms-transform: translate(-65%, 0);
+            transform: translate(-65%, 0);
   }
 }
 .hero-home__slide-reverse .hero-home__decor::after {
@@ -731,10 +763,10 @@ body._lock {
 }
 @media (max-width: 767.98px) {
   .hero-home__header {
-    -webkit-box-shadow: -2px 4px 12px 0 rgba(0, 0, 0, 0.04);
-            box-shadow: -2px 4px 12px 0 rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: -0.125rem 0.25rem 0.75rem 0 rgba(0, 0, 0, 0.04);
+            box-shadow: -0.125rem 0.25rem 0.75rem 0 rgba(0, 0, 0, 0.04);
     background: rgba(29, 29, 29, 0.41);
-    border: 1.02px solid #fff;
+    border: 0.0638rem solid #fff;
     border-radius: 50%;
     backdrop-filter: blur(10px);
     aspect-ratio: 1/1;
@@ -754,11 +786,11 @@ body._lock {
     -webkit-transform: rotate(-8deg);
         -ms-transform: rotate(-8deg);
             transform: rotate(-8deg);
-    margin-bottom: 298px;
+    margin-bottom: 24rem;
     width: 68.1%;
     margin-top: 150px;
     margin-right: -50px;
-    min-width: 297px;
+    min-width: 18.5625rem;
     margin-left: auto;
     padding-inline: 60px;
   }
@@ -895,6 +927,8 @@ body._lock {
   background: #fff;
   border: 1px dashed #000000;
   z-index: 1;
+  -webkit-animation: spin 20s linear infinite;
+          animation: spin 20s linear infinite;
 }
 @media (max-width: 767.98px) {
   .hero-home__switcher::after {
@@ -2082,10 +2116,6 @@ body._lock {
   max-width: 15.375rem;
 }
 
-main {
-  display: none;
-}
-
 .footer {
   overflow: hidden;
   padding-top: 6.5rem;
@@ -2240,6 +2270,8 @@ main {
   top: 0;
   left: 0;
   z-index: 1;
+  -webkit-animation: spin 20s linear infinite;
+          animation: spin 20s linear infinite;
 }
 .info-footer__body {
   position: relative;

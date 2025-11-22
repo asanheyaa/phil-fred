@@ -12,37 +12,72 @@ burgerMenu.addEventListener('click', (e) => {
 // hero home animation
 
 const firstSwithButton = document.querySelector('.hero-home__switcher-01'),
-	secondSwithButton = document.querySelector('.hero-home__switcher-02');
+	secondSwitchButton = document.querySelector('.hero-home__switcher-02'),
+	 header = document.querySelector('.header');
+
+	
 
 
+let homeHeroTl = gsap.timeline({
+	paused: true,
+	onReverseComplete: () => {
+		gsap.to('.hero-home__slide-01 .hero-home__pizza-image', {
+			scale: 1,
+			autoAlpha:1,
+			duration: .5
+		})
+		
+		gsap.set('.hero-home__slide-02 .hero-home__pizza-image', {
+			scale: .9,
+			autoAlpha:0
+		})
+		header.classList.add('header-dark')
+		header.classList.remove('header-white')
+	},
+	onComplete: () => {
+		gsap.to('.hero-home__slide-02 .hero-home__pizza-image', {
+			scale: 1,
+			autoAlpha: 1,
+			duration: .5
+		})
+		gsap.to('.header__logo-dark-anim', {
+			autoAlpha: 1,
+			duration: .5
+		})
+		gsap.set('.hero-home__slide-01 .hero-home__pizza-image', {
+			scale: .9,
+			autoAlpha: 0,
+		})
 
-firstSwithButton.addEventListener('click', (e) => {
-	let homeHeroTl = gsap.timeline();
-	homeHeroTl.to('.hero-home__slide-01', {
-		xPercent: -100,
+		header.classList.remove('header-dark')
+		header.classList.add('header-white')
+
+	},
+});
+homeHeroTl.to('.hero-home__body', {
+	x: '0%',
+	duration: 1
+})
+	.to('.hero-home__slide-01', {
 		autoAlpha: 0,
 		duration: 1
-	})
-		.to('.hero-home__slide-02', {
-			xPercent: -200,
-			autoAlpha: 1,
-			duration: 1
-		}, "<")
+	}, "<")
+	.to('.hero-home__slide-02', {
+		autoAlpha: 1,
+		duration: 1
+	}, "<")
+
+firstSwithButton.addEventListener('click', (e) => {
+	homeHeroTl.play()
 })
 
 
-secondSwithButton.addEventListener('click', (e) => {
-	let homeHeroTl = gsap.timeline();
-	homeHeroTl.to('.hero-home__slide-01', {
-		xPercent: 0,
-		autoAlpha: 1,
-		duration: 1
+secondSwitchButton.addEventListener('click', (e) => {
+	homeHeroTl.reverse()
+	gsap.to('.header__logo-dark-anim', {
+		autoAlpha: 0,
+		duration: .5
 	})
-		.to('.hero-home__slide-02', {
-			xPercent: 0,
-			autoAlpha: 0,
-			duration: 1
-		}, "<")
 })
 
 
@@ -298,7 +333,7 @@ if (cards) {
 					ScrollTrigger.getById(card.dataset.stId)?.kill();
 
 					function onEnter() { hoverEnterCardsTl.play(); }
-					function onLeave() { hoverEnterCardsTl.reverse(); }
+					function onLeave() { hoverEnterCardsTl.reverse(1); }
 
 					// Attach hover listeners
 					card.addEventListener("mouseenter", onEnter);
