@@ -380,6 +380,32 @@ if (aboutImages) {
 	});
 }
 
+
+// ====================================================================================================================
+// blog page
+
+
+
+if (typeof Swiper !== 'undefined') {
+	const swiperPromotions = new Swiper('.actions-blog-hero__swiper', {
+		loop: true,
+		autoplay: {
+			delay: 5000,
+		},
+		slidesPerView: 3,
+		spaceBetween: 30,
+		speed: 500,
+		pagination: {
+			el: '.home-promotions__swiper-pagination',
+		},
+
+
+	});
+
+
+}
+
+
 // A function that moves elements to other blocks depending on the size of the screen. (Used when adapting the page to different devices.)
 function dynamicAdaptiv() {
 	class DynamicAdapt {
