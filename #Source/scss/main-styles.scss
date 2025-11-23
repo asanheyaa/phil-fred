@@ -1,4 +1,4 @@
-$containerWidth: 1486;
+$containerWidth: 1536;
 
 @import "nullstyle.scss";
 @import "mixins.scss";
@@ -51,7 +51,7 @@ body {
 		padding: 0 3rem;
 	}
 	padding: 0 1.4375rem;
-	@media (max-width: 390px) {
+	@media (max-width: 24.0625rem) {
 		padding: 0 0.9375rem;
 	}
 }
@@ -92,6 +92,22 @@ body {
 	&-red {
 		background: #e5193a;
 		border-color: transparent;
+		&-hover-dark {
+			@media (any-hover: hover) {
+				&:hover {
+					background: transparent;
+				}
+			}
+		}
+		&-hover-light {
+			@media (any-hover: hover) {
+				&:hover {
+					background: transparent;
+					color: #e5193a;
+					border-color: #e5193a;
+				}
+			}
+		}
 	}
 	&-alt {
 		color: rgba(255, 255, 255, 0.74);
@@ -157,6 +173,75 @@ body {
 		left: 0;
 		object-fit: cover;
 		object-position: center;
+	}
+}
+
+.article {
+	min-height: 28.3125rem;
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	border-radius: 0.5rem 0.5rem 0 0;
+	overflow: hidden;
+	box-shadow: inset 0.5rem 0.5rem 0.75rem 0 rgba(0, 0, 0, 0.25);
+	transition: transform 0.5s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	color: #fff;
+	&__wrapper {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		column-gap: 1.5rem;
+		@include adaptiveValue(row-gap, 96, 24);
+	}
+	&__back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 1;
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: linear-gradient(
+				180deg,
+				rgba(0, 0, 0, 0),
+				rgba(25, 25, 25, 0.72) 72%,
+				rgba(27, 27, 27, 0.92) 83%,
+				rgba(29, 29, 29, 1) 100%
+			);
+		}
+	}
+
+	&__info {
+		position: relative;
+		z-index: 2;
+		padding: 1rem;
+	}
+
+	&__title {
+		font-family: "Roboto Condensed", sans-serif;
+		font-weight: 700;
+		font-size: 1.375rem;
+		line-height: 109%;
+		text-transform: uppercase;
+		margin-bottom: 0.5rem;
+	}
+
+	&__subtitle {
+		font-size: 0.9375rem;
+		line-height: 127%;
+		color: rgba(255, 255, 255, 0.99);
+		@include multiLineEllipsis(3);
 	}
 }
 
@@ -790,10 +875,10 @@ body {
 .home-promotions {
 	position: relative;
 	z-index: 5;
-	padding-top: 50px;
+	padding-top: 3.4375rem;
 
 	@media (max-width: 767.98px) {
-		padding-top: 130px;
+		padding-top: 8.125rem;
 	}
 	&__container {
 		padding: 0;
@@ -1775,6 +1860,7 @@ body {
 		right: 1.6875rem;
 		transform: translate(0, -50%);
 		color: #636363;
+		@include svgSizes(20, 20);
 	}
 
 	&__button {
@@ -2056,9 +2142,10 @@ body {
 //==========================================================================================================================================================
 
 .blog-hero {
-	@include adaptiveValue(padding-top, 236, 116);
 	// .blog-hero__container
-
+	@media (max-width: 1200px) {
+		@include adaptiveValue(padding-top, 236, 116);
+	}
 	&__container {
 	}
 
@@ -2066,12 +2153,22 @@ body {
 
 	&__body {
 		display: flex;
-		@include adaptiveValue(gap, 34, 32);
+		@media (max-width: 1200px) {
+			@include adaptiveValue(gap, 34, 32);
+			align-items: stretch;
+		}
+		align-items: center;
+		@media (max-width: 75rem) {
+			flex-direction: column;
+		}
 	}
 
 	// .blog-hero__info
 
 	&__info {
+		@media (min-width: 75rem) {
+			flex: 0 0 19.0625rem;
+		}
 	}
 
 	// .blog-hero__title
@@ -2095,18 +2192,27 @@ body {
 		span {
 			color: #e5193a;
 		}
+		max-width: 16.25rem;
 	}
 }
 .actions-blog-hero {
 	// .actions-blog-hero__swiper
+	@media (min-width: 1200px) {
+		overflow: hidden;
+		@include adaptiveValue(padding-top, 236, 116);
+		padding-inline: 20px;
+	}
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	min-width: 0;
-
 	&__swiper {
 		width: 100%;
 		height: 100%;
+		overflow: visible;
+		@media (max-width: 767.98px) {
+		}
 	}
 
 	// .actions-blog-hero__wrapper
@@ -2122,82 +2228,77 @@ body {
 	// .actions-blog-hero__body
 
 	&__body {
-		min-height: 28.3125rem;
-		position: relative;
-		display: flex;
-		align-items: flex-end;
-		border-radius: 0.5rem 0.5rem 0 0;
-		overflow: hidden;
-		box-shadow: inset 8px 8px 12px 0 rgba(0, 0, 0, 0.25);
-
-
 	}
 
 	// .actions-blog-hero__back
 
-	&__back {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		z-index: 1;
-
-		&::after{
-			content:'';
-			position:absolute;
-			width:100%;
-			height:100%;
-			top:0;
-			left:0;
-			background: linear-gradient(90deg, #000000 0%, #191919 72%, #1B1B1B 83%, #1D1D1D 100%);
-			}
-	}
-
-	// .actions-blog-hero__info
-
-	&__info {
-		position: relative;
-		z-index: 2;
-		padding: 16px;
-	}
-
-	// .actions-blog-hero__title
-
-	&__title {
-		font-family: "Roboto Condensed", sans-serif;
-		font-weight: 700;
-		font-size: 22px;
-		line-height: 109%;
-		text-transform: uppercase;
-	}
-
-	// .actions-blog-hero__subtitle
-
-	&__subtitle {
-		font-size: 15px;
-		line-height: 127%;
-		color: rgba(255, 255, 255, 0.99);
-	}
-
 	// .actions-blog-hero__nav
 
 	&__nav {
+		@include adaptiveValue(margin-top, 10, 14);
+		margin-left: auto;
 	}
 
 	// .actions-blog-hero__button
 
 	&__button {
+		display: inline-block;
+		border: 0.0625rem dashed #fff;
+		color: #fff;
+		height: 2.4375rem;
+		width: 2.4375rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				border-color: #e5193a;
+				color: #e5193a;
+			}
+		}
 	}
 
 	// .actions-blog-hero__button-next
 
 	&__button-next {
+		transform: rotate(180deg);
 	}
 }
-.swiper {
-}
-.swiper-wrapper {
-}
-.swiper-slide {
+
+//==========================================================================================================================================================
+
+.blog-hero-articles {
+	@include adaptiveValue(padding-top, 64, 70);
+	@include adaptiveValue(padding-bottom, 48, 82);
+	&__container {
+	}
+
+	&__header {
+		margin-bottom: 1rem;
+	}
+
+	&__label {
+		font-family: "Roboto Condensed", sans-serif;
+		font-style: italic;
+		font-weight: 500;
+		@include adaptiveValue(font-size, 22, 20);
+		line-height: 127%;
+		color: #fff;
+	}
+
+	&__value {
+	}
+
+	&__footer {
+		text-align: center;
+		@include adaptiveValue(margin-top, 80, 50);
+	}
+
+	&__button {
+		svg {
+			transform: rotate(180deg);
+		}
+	}
 }

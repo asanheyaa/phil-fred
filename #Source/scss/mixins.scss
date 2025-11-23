@@ -18,6 +18,18 @@
 	-webkit-box-orient: vertical;
 }
 
+@mixin svgSizes($width, $height) {
+	width: $width + px;
+	height: $height + px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	svg {
+		width: $width  + px;
+		height: $height  + px;
+	}
+}
+
 
 // @mixin adaptiveValue($property, $pcSize, $mobSize, $type) {
 // 	$addSize: $pcSize - $mobSize;

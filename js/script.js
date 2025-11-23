@@ -185,29 +185,29 @@ const imageOne = document.querySelector('.home-products__image-01'),
 	imageTwo = document.querySelector('.home-products__image-02'),
 	imageThree = document.querySelector('.home-products__image-03');
 
-if (imageOne){
+if (imageOne) {
 
-function createScrollAnimation(target, vars) {
-	const el = gsap.utils.toArray(target)[0];
-	if (el && el.tagName === "IMG") {
-		el.addEventListener("load", () => ScrollTrigger.refresh());
-		if (el.complete) ScrollTrigger.refresh();
-	}
-
-	gsap.from(target, {
-		...vars,
-		ease: "none",
-		scrollTrigger: {
-			trigger: target,
-			start: "top bottom",
-			end: "+=1000",
-			scrub: 1,
-			invalidateOnRefresh: true,
-			refreshPriority: -1,
-
+	function createScrollAnimation(target, vars) {
+		const el = gsap.utils.toArray(target)[0];
+		if (el && el.tagName === "IMG") {
+			el.addEventListener("load", () => ScrollTrigger.refresh());
+			if (el.complete) ScrollTrigger.refresh();
 		}
-	});
-}
+
+		gsap.from(target, {
+			...vars,
+			ease: "none",
+			scrollTrigger: {
+				trigger: target,
+				start: "top bottom",
+				end: "+=1000",
+				scrub: 1,
+				invalidateOnRefresh: true,
+				refreshPriority: -1,
+
+			}
+		});
+	}
 
 	createScrollAnimation(imageOne, { yPercent: -20 });
 	createScrollAnimation(imageTwo, { xPercent: 20 });
@@ -351,7 +351,7 @@ if (videoPlayers) {
 	videoPlayers.forEach(videoPlayer => {
 		const player = new Plyr(videoPlayer, {
 			controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
-			 clickToPlay: true
+			clickToPlay: true
 		});
 	});
 }
@@ -383,7 +383,7 @@ if (aboutImages) {
 
 // ====================================================================================================================
 // blog page
-
+// swiper-hero
 
 
 if (typeof Swiper !== 'undefined') {
@@ -392,19 +392,68 @@ if (typeof Swiper !== 'undefined') {
 		autoplay: {
 			delay: 5000,
 		},
-		slidesPerView: 3,
-		spaceBetween: 30,
-		speed: 500,
-		pagination: {
-			el: '.home-promotions__swiper-pagination',
+		spaceBetween: 24,
+
+		speed: 1000,
+		navigation: {
+			nextEl: '.actions-blog-hero__button-next',
+
+		},
+
+		breakpoints: {
+			320: {
+				slidesPerView: 1.05,
+			},
+			500: {
+				slidesPerView: 1.2,
+			},
+			630: {
+				slidesPerView: 1.5,
+			},
+			768: {
+				slidesPerView: 2.5,
+			},
+			992: {
+				slidesPerView: 3,
+
+			}
 		},
 
 
-	});
-
-
+	})
 }
 
+
+// articles anim
+const articlesWrappers = document.querySelectorAll('.article__wrapper-anim');
+
+if (articlesWrappers) {
+	
+	articlesWrappers.forEach(articlesWrapper => {
+		const articles = articlesWrapper.querySelectorAll('.article');
+		
+		let blogArticlesTl = gsap.timeline({
+			scrollTrigger: {
+				start: 'top bottom',
+				trigger: articlesWrapper
+			},
+		})
+			.from(articles, {
+				
+				autoAlpha: 0,
+				duration: 1,
+				stagger: .3
+			})
+			.fromTo('.blog-hero-articles__button', {
+		
+				autoAlpha: 0,
+			}, {
+				autoAlpha: 1,
+				duration: 1,
+			})
+	});
+	
+}
 
 // A function that moves elements to other blocks depending on the size of the screen. (Used when adapting the page to different devices.)
 function dynamicAdaptiv() {
