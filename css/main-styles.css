@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -412,6 +413,17 @@ body._lock {
 .header-dark .header-menu__link.button {
   border-color: #e5193a;
   color: #e5193a;
+}
+.header-dark .burger-menu__line {
+  background: #1d1d1d;
+}
+@media (max-width: 1250px) {
+  .header-dark .header-menu {
+    background: #fff;
+  }
+  .header-dark .header-menu__link {
+    color: #1d1d1d;
+  }
 }
 .header__container {
   display: -webkit-box;
@@ -3233,4 +3245,338 @@ body._lock {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+.single-page {
+  padding-top: 180px;
+}
+@media (max-width: 1536px) {
+  .single-page {
+    padding-top: calc(107px + 73 * (100vw - 390px) / 1146);
+  }
+}
+.single-page .mb-medium {
+  margin-bottom: 64px;
+}
+@media (max-width: 1536px) {
+  .single-page .mb-medium {
+    margin-bottom: calc(40px + 24 * (100vw - 390px) / 1146);
+  }
+}
+.single-page .mt-medium {
+  margin-top: 64px;
+}
+@media (max-width: 1536px) {
+  .single-page .mt-medium {
+    margin-top: calc(40px + 24 * (100vw - 390px) / 1146);
+  }
+}
+.single-page__header {
+  margin-bottom: 63px;
+}
+@media (max-width: 1536px) {
+  .single-page__header {
+    margin-bottom: calc(40px + 23 * (100vw - 390px) / 1146);
+  }
+}
+.single-page__title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 105%;
+  text-transform: uppercase;
+  color: #1d1d1d;
+  margin-bottom: 1rem;
+}
+@media (max-width: 1536px) {
+  .single-page__title {
+    font-size: calc(38px + 12 * (100vw - 390px) / 1146);
+  }
+}
+.single-page__title span {
+  color: #e5193a;
+}
+.single-page__details {
+  font-size: 22px;
+  line-height: 127%;
+  max-width: 30.3125rem;
+}
+@media (max-width: 1536px) {
+  .single-page__details {
+    font-size: calc(18px + 4 * (100vw - 390px) / 1146);
+  }
+}
+.single-page__body {
+  color: #fff;
+  background: #1d1d1d;
+}
+.single-page__body .single-page__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 48px;
+}
+@media (max-width: 1536px) {
+  .single-page__body .single-page__container {
+    gap: calc(40px + 8 * (100vw - 390px) / 1146);
+  }
+}
+@media (max-width: 991.98px) {
+  .single-page__body .single-page__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.single-page__body-reverse .single-page__container {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.single-page__body-reverse .single-page__images {
+  display: none;
+}
+@media (min-width: 991.98px) {
+  .single-page__body-reverse .single-page__images {
+    margin-left: -3rem;
+    margin-right: 0;
+    display: block;
+  }
+}
+@media (max-width: 991.98px) {
+  .single-page__body-reverse .single-page__text {
+    padding-top: 2.5rem;
+    padding-bottom: 0;
+  }
+}
+.single-page__text {
+  background: #1d1d1d;
+}
+@media (min-width: 61.9988rem) {
+  .single-page__text {
+    padding-top: 80px;
+  }
+}
+@media (min-width: 61.9988rem) and (max-width: 1536px) {
+  .single-page__text {
+    padding-top: calc(40px + 40 * (100vw - 390px) / 1146);
+  }
+}
+.single-page__text p > b {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 38px;
+  line-height: 1;
+  color: #e5193a;
+}
+@media (max-width: 1536px) {
+  .single-page__text p > b {
+    font-size: calc(32px + 6 * (100vw - 390px) / 1146);
+  }
+}
+.single-page__text p:not(:last-child) {
+  margin-bottom: 48px;
+}
+@media (max-width: 1536px) {
+  .single-page__text p:not(:last-child) {
+    margin-bottom: calc(32px + 16 * (100vw - 390px) / 1146);
+  }
+}
+@media (max-width: 991.98px) {
+  .single-page__text {
+    padding-bottom: 2.5rem;
+  }
+}
+.single-page__quote {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  padding-left: 1.5rem;
+  position: relative;
+}
+@media (max-width: 1536px) {
+  .single-page__quote {
+    font-size: calc(17px + 3 * (100vw - 390px) / 1146);
+  }
+}
+@media (min-width: 991.98px) {
+  .single-page__quote {
+    max-width: 39.75rem;
+  }
+}
+.single-page__quote::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #e5193a;
+}
+.single-page__autor {
+  margin-top: 8px;
+  font-size: 1rem;
+  line-height: 175%;
+  text-align: right;
+  display: block;
+  padding-left: 1.5rem;
+}
+@media (min-width: 991.98px) {
+  .single-page__autor {
+    max-width: 39.75rem;
+  }
+}
+.single-page__autor b {
+  font-weight: 700;
+}
+@media (max-width: 767.98px) {
+  .single-page__autor b {
+    display: block;
+  }
+}
+@media (max-width: 991.98px) {
+  .single-page__image {
+    margin: 0 -1.5rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .single-page__image img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 991.98px) {
+  .single-page__image-sm {
+    display: none;
+  }
+}
+.single-page__images {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 44.25%;
+          flex: 0 0 44.25%;
+}
+@media (min-width: 991.98px) {
+  .single-page__images {
+    margin-right: -3rem;
+  }
+}
+.single-page__crawl {
+  padding-block: 21px;
+  gap: 48px;
+}
+@media (max-width: 1536px) {
+  .single-page__crawl {
+    padding-block: calc(13px + 8 * (100vw - 390px) / 1146);
+  }
+}
+@media (max-width: 1536px) {
+  .single-page__crawl {
+    gap: calc(24px + 24 * (100vw - 390px) / 1146);
+  }
+}
+.single-page__crawl span {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #636363;
+}
+@media (max-width: 1536px) {
+  .single-page__crawl span {
+    font-size: calc(26px + 6 * (100vw - 390px) / 1146);
+  }
+}
+
+.single-post-articles {
+  padding-block: 104px;
+}
+@media (max-width: 1536px) {
+  .single-post-articles {
+    padding-block: calc(80px + 24 * (100vw - 390px) / 1146);
+  }
+}
+.single-post-articles__title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2rem;
+  line-height: 100%;
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+@media (max-width: 767.98px) {
+  .single-post-articles__title {
+    font-weight: 700;
+  }
+}
+@media (max-width: 1536px) {
+  .single-post-articles__title {
+    margin-bottom: calc(24px + -8 * (100vw - 390px) / 1146);
+  }
+}
+
+/* Базові стилі для десктопу — карточки в рядок */
+.single-post-articles__swiper {
+  overflow: hidden; /* на мобілці ховаємо зайве */
+}
+
+.single-post-articles__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 20px; /* відстань між карточками */
+  -webkit-transition: -webkit-transform 0.1s ease;
+  transition: -webkit-transform 0.1s ease;
+  transition: transform 0.1s ease;
+  transition: transform 0.1s ease, -webkit-transform 0.1s ease; /* плавність при scrub (якщо є) */
+}
+
+.single-post-articles__slide {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 320px;
+          flex: 0 0 320px; /* ширина карточки на десктопі */
+  max-width: 320px;
+}
+
+/* На десктопі — відключаємо Swiper-властивості */
+@media (min-width: 992px) {
+  .single-post-articles__swiper.swiper-initialized .swiper-wrapper {
+    -webkit-transform: none !important;
+        -ms-transform: none !important;
+            transform: none !important; /* прибираємо трансформ від Swiper */
+  }
+  .single-post-articles__slide {
+    width: auto !important;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+  /* Опціонально: якщо хочеш горизонтальний скрол на десктопі */
+  .single-post-articles__swiper {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .single-post-articles__swiper::-webkit-scrollbar {
+    height: 6px;
+  }
+  .single-post-articles__swiper::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+}
+/* Мобільна версія — Swiper буде керувати всім */
+@media (max-width: 991.98px) {
+  .single-post-articles__slide {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%; /* або 100%, як тобі зручніше */
+  }
 }

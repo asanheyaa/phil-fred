@@ -286,6 +286,18 @@ body {
 			border-color: #e5193a;
 			color: #e5193a;
 		}
+		.burger-menu__line {
+			background: #1d1d1d;
+		}
+		@media (max-width: 1250px) {
+			.header-menu {
+				background: #fff;
+			}
+
+			.header-menu__link {
+				color: #1d1d1d;
+			}
+		}
 	}
 	&__container {
 		display: flex;
@@ -513,11 +525,10 @@ body {
 
 			.hero-home__info {
 				border: none;
-			
 			}
 
 			.hero-home__info-wrapper {
-				@media (min-width:767.98px) {
+				@media (min-width: 767.98px) {
 					padding-bottom: 8.25rem;
 				}
 			}
@@ -571,8 +582,7 @@ body {
 			flex: 0 1 50%;
 			border-right: 2px solid #fff;
 		}
-		@media (min-width:767.98px) {
-			
+		@media (min-width: 767.98px) {
 			padding-bottom: 50px;
 		}
 	}
@@ -2309,4 +2319,244 @@ body {
 			transform: rotate(180deg);
 		}
 	}
+}
+
+//==========================================================================================================================================================
+
+.single-page {
+	@include adaptiveValue(padding-top, 180, 107);
+	& .mb-medium {
+		@include adaptiveValue(margin-bottom, 64, 40);
+	}
+	& .mt-medium {
+		@include adaptiveValue(margin-top, 64, 40);
+	}
+	&__container {
+	}
+
+	&__header {
+		@include adaptiveValue(margin-bottom, 63, 40);
+	}
+
+	&__title {
+		font-family: "Roboto Condensed", sans-serif;
+		font-weight: 600;
+		@include adaptiveValue(font-size, 50, 38);
+		line-height: 105%;
+		text-transform: uppercase;
+		color: #1d1d1d;
+		margin-bottom: 1rem;
+		span {
+			color: #e5193a;
+		}
+	}
+
+	&__details {
+		@include adaptiveValue(font-size, 22, 18);
+		line-height: 127%;
+		max-width: 30.3125rem;
+	}
+
+	&__body {
+		color: #fff;
+		background: #1d1d1d;
+		.single-page__container {
+			display: flex;
+			@include adaptiveValue(gap, 48, 40);
+			@media (max-width: 991.98px) {
+				flex-direction: column-reverse;
+				align-items: center;
+			}
+		}
+		&-reverse {
+			.single-page__container {
+				flex-direction: row-reverse;
+			}
+			.single-page__images {
+				display: none;
+				@media (min-width: 991.98px) {
+					margin-left: -3rem;
+					margin-right: 0;
+					display: block;
+				}
+			}
+			.single-page__text {
+				@media (max-width: 991.98px) {
+					padding-top: 2.5rem;
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&__text {
+		background: #1d1d1d;
+		@media (min-width: 61.9988rem) {
+			@include adaptiveValue(padding-top, 80, 40);
+		}
+		p {
+			& > b {
+				font-family: "Roboto Condensed", sans-serif;
+				font-weight: 500;
+				@include adaptiveValue(font-size, 38, 32);
+				line-height: 1;
+				color: #e5193a;
+			}
+		}
+		p:not(:last-child) {
+			@include adaptiveValue(margin-bottom, 48, 32);
+		}
+		@media (max-width: 991.98px) {
+			padding-bottom: 2.5rem;
+		}
+	}
+
+	&__quote {
+		font-family: "Roboto Condensed", sans-serif;
+		font-style: italic;
+		font-weight: 500;
+		@include adaptiveValue(font-size, 20, 17);
+		padding-left: 1.5rem;
+		position: relative;
+		@media (min-width: 991.98px) {
+			max-width: 39.75rem;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			width: 2px;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: #e5193a;
+		}
+	}
+
+	&__autor {
+		margin-top: 8px;
+		font-size: 1rem;
+		line-height: 175%;
+		text-align: right;
+		display: block;
+		padding-left: 1.5rem;
+		@media (min-width: 991.98px) {
+			max-width: 39.75rem;
+		}
+		b {
+			font-weight: 700;
+			@media (max-width: 767.98px) {
+				display: block;
+			}
+		}
+	}
+
+	&__image {
+		@media (max-width: 991.98px) {
+			margin: 0 -1.5rem;
+		}
+		img {
+			@media (max-width: 991.98px) {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+		&-sm {
+			@media (min-width: 991.98px) {
+				display: none;
+			}
+		}
+	}
+
+	&__images {
+		@media (min-width: 991.98px) {
+			margin-right: -3rem;
+		}
+		flex: 0 0 44.25%;
+	}
+
+	&__decor {
+	}
+
+	&__crawl {
+		@include adaptiveValue(padding-block, 21, 13);
+		@include adaptiveValue(gap, 48, 24);
+		span {
+			font-family: "Roboto Condensed", sans-serif;
+			font-weight: 700;
+			@include adaptiveValue(font-size, 32, 26);
+			line-height: 100%;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: #636363;
+		}
+	}
+}
+
+//==========================================================================================================================================================
+
+.single-post-articles {
+	@include adaptiveValue(padding-block, 104, 80);
+	&__container {
+	}
+
+	&__title {
+		font-family: "Roboto Condensed", sans-serif;
+		font-size: 2rem;
+		line-height: 100%;
+		color: #000;
+		font-weight: 500;
+		@media (max-width:767.98px) {
+			font-weight: 700;
+		}
+		@include adaptiveValue(margin-bottom, 16, 24);
+	}
+}
+
+/* Базові стилі для десктопу — карточки в рядок */
+.single-post-articles__swiper {
+    overflow: hidden; /* на мобілці ховаємо зайве */
+}
+
+.single-post-articles__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px; /* відстань між карточками */
+    transition: transform 0.1s ease; /* плавність при scrub (якщо є) */
+}
+
+.single-post-articles__slide {
+    flex: 0 0 320px; /* ширина карточки на десктопі */
+    max-width: 320px;
+}
+
+/* На десктопі — відключаємо Swiper-властивості */
+@media (min-width: 992px) {
+    .single-post-articles__swiper.swiper-initialized .swiper-wrapper {
+        transform: none !important; /* прибираємо трансформ від Swiper */
+    }
+
+    .single-post-articles__slide {
+        width: auto !important;
+        flex-shrink: 0;
+    }
+
+    /* Опціонально: якщо хочеш горизонтальний скрол на десктопі */
+    .single-post-articles__swiper {
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+    .single-post-articles__swiper::-webkit-scrollbar {
+        height: 6px;
+    }
+    .single-post-articles__swiper::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
+}
+
+/* Мобільна версія — Swiper буде керувати всім */
+@media (max-width: 991.98px) {
+    .single-post-articles__slide {
+        flex: 0 0 100%; /* або 100%, як тобі зручніше */
+    }
 }

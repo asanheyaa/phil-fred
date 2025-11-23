@@ -90,11 +90,12 @@ const crawlers = document.querySelectorAll(".crawl");
 if (crawlers) {
 	crawlers.forEach(crawler => {
 		const totalWidth = crawler.scrollWidth / 2;
+
 		ScrollTrigger.create({
 			animation: gsap.fromTo(crawler, {
-				x: 0
+				x: -totalWidth * 0.1   // було 0 → стало -10%
 			}, {
-				x: -totalWidth * .1,
+				x: 0,                  // було -10% → стало 0
 				ease: "none"
 			}),
 			trigger: crawler,
@@ -103,7 +104,6 @@ if (crawlers) {
 			scrub: 1,
 			invalidateOnRefresh: true,
 		});
-
 	});
 }
 
@@ -454,6 +454,50 @@ if (articlesWrappers) {
 	});
 	
 }
+
+
+// ==============================================================================================================================================================
+// single post page
+
+document.addEventListener("DOMContentLoaded", function () {
+	const swiperEl = document.querySelector(".single-post-articles__swiper");
+	let mobileSwiper = null;
+
+	function initMobileSwiper() {
+		const isMobile = window.innerWidth <= 991.98;
+
+		// === ВМИКАЄМО Swiper тільки на мобілці ===
+		if (isMobile && !mobileSwiper) {
+			mobileSwiper = new Swiper(swiperEl, {
+				slidesPerView: 1.1,        // трохи видно наступну карточку
+				spaceBetween: 24,
+				centeredSlides: false,
+				
+				// Якщо хочеш стрілки — додай їх у розмітку і розкоментуй
+				// navigation: {
+				//     nextEl: ".swiper-button-next",
+				//     prevEl: ".swiper-button-prev",
+				// },
+			});
+
+			// === ВИМИКАЄМО Swiper на десктопі ===
+		} else if (!isMobile && mobileSwiper) {
+			mobileSwiper.destroy(true, true); // повне знищення
+			mobileSwiper = null;
+		}
+	}
+
+	// Запускаємо при завантаженні
+	initMobileSwiper();
+
+	// І при зміні розміру вікна (з debounce)
+	let resizeTimeout;
+	window.addEventListener("resize", () => {
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(initMobileSwiper, 100);
+	});
+});
+
 
 // A function that moves elements to other blocks depending on the size of the screen. (Used when adapting the page to different devices.)
 function dynamicAdaptiv() {
