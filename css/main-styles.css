@@ -3320,6 +3320,9 @@ body._lock {
   height: 100%;
   overflow: visible;
 }
+.actions-blog-hero__nav {
+  margin-left: auto;
+}
 .nav-swiper {
   margin-top: 10px;
   display: -webkit-box;
