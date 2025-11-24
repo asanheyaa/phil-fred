@@ -3559,20 +3559,29 @@ body._lock {
   }
 }
 
-.geolocation__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 48px;
+@media (min-width: 991.98px) {
+  .geolocation__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 48px;
+  }
 }
-@media (max-width: 1536px) {
+@media (min-width: 991.98px) and (max-width: 1536px) {
   .geolocation__container {
     gap: calc(16px + 32 * (100vw - 390px) / 1146);
   }
 }
+.geolocation__map {
+  margin-right: -3rem;
+}
 @media (max-width: 991.98px) {
   .geolocation__map {
+    margin: 0 -1.5rem;
     margin-top: 2rem;
+  }
+  .geolocation__map img {
+    width: 100%;
   }
 }
 
@@ -3747,6 +3756,11 @@ body._lock {
   background: #1d1d1d;
   border-radius: 0.5rem 0.5rem 0 0;
   overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .action-geolocation__list {
+    margin: 0 -1.5rem;
+  }
 }
 .action-geolocation__item {
   background: #1d1d1d;

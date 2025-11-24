@@ -2563,13 +2563,21 @@ body {
 
 .geolocation {
 	&__container {
-		display: flex;
-		@include adaptiveValue(gap, 48, 16);
+		@media (min-width:991.98px) {
+			display: flex;
+			@include adaptiveValue(gap, 48, 16);
+			
+		}
 	}
 
 	&__map {
+		margin-right: -3rem;
 		@media (max-width:991.98px) {
+			margin: 0 -1.5rem;
 			margin-top: 2rem;
+			img{
+				width: 100%;
+			}
 		}
 	}
 }
@@ -2672,6 +2680,9 @@ body {
 		background: #1d1d1d;
 		border-radius: 0.5rem 0.5rem 0 0;
 		overflow: hidden;
+		@media (max-width:991.98px) {
+			margin: 0 -1.5rem;
+		}
 	}
 
 	&__item {
