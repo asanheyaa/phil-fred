@@ -108,12 +108,12 @@ const crawlers = document.querySelectorAll(".crawl");
 if (crawlers) {
 	crawlers.forEach(crawler => {
 		const totalWidth = crawler.scrollWidth / 2;
-
+		let ratio = 0.1 //this affects the speed of scrolling the line 
 		ScrollTrigger.create({
 			animation: gsap.fromTo(crawler, {
-				x: -totalWidth * 0.1   // було 0 → стало -10%
+				x: -totalWidth * ratio   
 			}, {
-				x: 0,                  // було -10% → стало 0
+				x: 0,
 				ease: "none"
 			}),
 			trigger: crawler,
