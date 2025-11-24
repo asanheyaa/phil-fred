@@ -21,7 +21,8 @@ window.addEventListener('scroll', (e)=>{
 	}
 })
 
-
+// ==========================================================================================================================================================
+// homepage
 // hero home animation
 
 const firstSwithButton = document.querySelector('.hero-home__switcher-01'),
@@ -101,7 +102,7 @@ if (firstSwithButton) {
 }
 
 
-// running stroke
+// running strokes anim
 const crawlers = document.querySelectorAll(".crawl");
 
 if (crawlers) {
@@ -232,6 +233,7 @@ if (imageOne) {
 
 }
 
+// home about section
 const gallerySections = document.querySelectorAll('.--galery-anim');
 
 if (gallerySections) {
@@ -258,7 +260,7 @@ if (gallerySections) {
 	});
 }
 
-
+// home values sections
 const cards = document.querySelectorAll('.home-values__item');
 
 
@@ -359,8 +361,6 @@ if (cards) {
 
 // ====================================================================================================================
 // About page
-
-
 // video Player
 const videoPlayers = document.querySelectorAll('[data-video-player]');
 
@@ -548,6 +548,8 @@ if (selectionMenus) {
 		});
 	});
 }
+
+
 
 // A function that moves elements to other blocks depending on the size of the screen. (Used when adapting the page to different devices.)
 function dynamicAdaptiv() {
