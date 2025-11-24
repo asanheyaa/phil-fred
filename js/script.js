@@ -388,7 +388,7 @@ if (aboutImages) {
 
 if (typeof Swiper !== 'undefined') {
 	const swiperPromotions = new Swiper('.actions-blog-hero__swiper', {
-		loop: true,
+		loop:true,
 		autoplay: {
 			delay: 5000,
 		},
@@ -464,33 +464,43 @@ document.addEventListener("DOMContentLoaded", function () {
 	let mobileSwiper = null;
 
 	function initMobileSwiper() {
-		const isMobile = window.innerWidth <= 991.98;
+		const isMobile = window.innerWidth <= 767.98;
 
-		// === ВМИКАЄМО Swiper тільки на мобілці ===
 		if (isMobile && !mobileSwiper) {
 			mobileSwiper = new Swiper(swiperEl, {
-				slidesPerView: 1.1,        // трохи видно наступну карточку
-				spaceBetween: 24,
-				centeredSlides: false,
 				
-				// Якщо хочеш стрілки — додай їх у розмітку і розкоментуй
-				// navigation: {
-				//     nextEl: ".swiper-button-next",
-				//     prevEl: ".swiper-button-prev",
-				// },
+				spaceBetween: 24,
+
+				speed: 1000,
+				navigation: {
+					nextEl: '.actions-blog-hero__button-next',
+
+				},
+
+				breakpoints: {
+					320: {
+						slidesPerView: 1.05,
+					},
+					500: {
+						slidesPerView: 1.2,
+					},
+					630: {
+						slidesPerView: 1.5,
+					},
+					767.98: {
+						slidesPerView: 2.5,
+					},
+				},
 			});
 
-			// === ВИМИКАЄМО Swiper на десктопі ===
 		} else if (!isMobile && mobileSwiper) {
-			mobileSwiper.destroy(true, true); // повне знищення
+			mobileSwiper.destroy(true, true); 
 			mobileSwiper = null;
 		}
 	}
 
-	// Запускаємо при завантаженні
 	initMobileSwiper();
 
-	// І при зміні розміру вікна (з debounce)
 	let resizeTimeout;
 	window.addEventListener("resize", () => {
 		clearTimeout(resizeTimeout);

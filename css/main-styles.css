@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -3162,16 +3161,24 @@ body._lock {
   height: 100%;
   overflow: visible;
 }
-.actions-blog-hero__nav {
+.nav-swiper {
   margin-top: 10px;
-  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 @media (max-width: 1536px) {
-  .actions-blog-hero__nav {
+  .nav-swiper {
     margin-top: calc(14px + -4 * (100vw - 390px) / 1146);
   }
 }
-.actions-blog-hero__button {
+.nav-swiper__button {
   display: inline-block;
   border: 0.0625rem dashed #fff;
   color: #fff;
@@ -3191,12 +3198,15 @@ body._lock {
   transition: all 0.3s ease 0s;
 }
 @media (any-hover: hover) {
-  .actions-blog-hero__button:hover {
+  .nav-swiper__button:hover {
     border-color: #e5193a;
     color: #e5193a;
   }
 }
-.actions-blog-hero__button-next {
+.nav-swiper__button-dark {
+  background: #1d1d1d;
+}
+.nav-swiper__button-next {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -3511,7 +3521,7 @@ body._lock {
   font-weight: 500;
   margin-bottom: 16px;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 47.9988rem) {
   .single-post-articles__title {
     font-weight: 700;
   }
@@ -3521,62 +3531,15 @@ body._lock {
     margin-bottom: calc(24px + -8 * (100vw - 390px) / 1146);
   }
 }
-
-/* Базові стилі для десктопу — карточки в рядок */
-.single-post-articles__swiper {
-  overflow: hidden; /* на мобілці ховаємо зайве */
-}
-
-.single-post-articles__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 20px; /* відстань між карточками */
-  -webkit-transition: -webkit-transform 0.1s ease;
-  transition: -webkit-transform 0.1s ease;
-  transition: transform 0.1s ease;
-  transition: transform 0.1s ease, -webkit-transform 0.1s ease; /* плавність при scrub (якщо є) */
-}
-
-.single-post-articles__slide {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 320px;
-          flex: 0 0 320px; /* ширина карточки на десктопі */
-  max-width: 320px;
-}
-
-/* На десктопі — відключаємо Swiper-властивості */
-@media (min-width: 992px) {
-  .single-post-articles__swiper.swiper-initialized .swiper-wrapper {
-    -webkit-transform: none !important;
-        -ms-transform: none !important;
-            transform: none !important; /* прибираємо трансформ від Swiper */
-  }
-  .single-post-articles__slide {
-    width: auto !important;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-  }
-  /* Опціонально: якщо хочеш горизонтальний скрол на десктопі */
-  .single-post-articles__swiper {
-    overflow-x: auto;
-    scrollbar-width: thin;
-  }
-  .single-post-articles__swiper::-webkit-scrollbar {
-    height: 6px;
-  }
-  .single-post-articles__swiper::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
+@media (max-width: 767.98px) {
+  .single-post-articles .article__wrapper {
+    display: block;
   }
 }
-/* Мобільна версія — Swiper буде керувати всім */
-@media (max-width: 991.98px) {
-  .single-post-articles__slide {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%; /* або 100%, як тобі зручніше */
+@media (min-width: 767.98px) {
+  .single-post-articles .swiper,
+  .single-post-articles .swiper-wrapper,
+  .single-post-articles .swiper-slide {
+    display: contents;
   }
 }

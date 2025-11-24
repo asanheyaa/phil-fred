@@ -2253,11 +2253,25 @@ body {
 	// .actions-blog-hero__nav
 
 	&__nav {
-		@include adaptiveValue(margin-top, 10, 14);
-		margin-left: auto;
 	}
 
 	// .actions-blog-hero__button
+
+	&__button {
+	}
+
+	// .actions-blog-hero__button-next
+
+	&__button-next {
+	}
+}
+
+.nav-swiper {
+	@include adaptiveValue(margin-top, 10, 14);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	// .nav-swiper__button
 
 	&__button {
 		display: inline-block;
@@ -2276,9 +2290,12 @@ body {
 				color: #e5193a;
 			}
 		}
+		&-dark {
+			background: #1d1d1d;
+		}
 	}
 
-	// .actions-blog-hero__button-next
+	// .nav-swiper__button-next
 
 	&__button-next {
 		transform: rotate(180deg);
@@ -2505,58 +2522,23 @@ body {
 		line-height: 100%;
 		color: #000;
 		font-weight: 500;
-		@media (max-width:767.98px) {
+		@media (max-width: 47.9988rem) {
 			font-weight: 700;
 		}
 		@include adaptiveValue(margin-bottom, 16, 24);
 	}
-}
 
-/* Базові стилі для десктопу — карточки в рядок */
-.single-post-articles__swiper {
-    overflow: hidden; /* на мобілці ховаємо зайве */
-}
+	.article__wrapper {
+		@media (max-width: 767.98px) {
+			display: block;
+		}
+	}
 
-.single-post-articles__wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px; /* відстань між карточками */
-    transition: transform 0.1s ease; /* плавність при scrub (якщо є) */
-}
-
-.single-post-articles__slide {
-    flex: 0 0 320px; /* ширина карточки на десктопі */
-    max-width: 320px;
-}
-
-/* На десктопі — відключаємо Swiper-властивості */
-@media (min-width: 992px) {
-    .single-post-articles__swiper.swiper-initialized .swiper-wrapper {
-        transform: none !important; /* прибираємо трансформ від Swiper */
-    }
-
-    .single-post-articles__slide {
-        width: auto !important;
-        flex-shrink: 0;
-    }
-
-    /* Опціонально: якщо хочеш горизонтальний скрол на десктопі */
-    .single-post-articles__swiper {
-        overflow-x: auto;
-        scrollbar-width: thin;
-    }
-    .single-post-articles__swiper::-webkit-scrollbar {
-        height: 6px;
-    }
-    .single-post-articles__swiper::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 3px;
-    }
-}
-
-/* Мобільна версія — Swiper буде керувати всім */
-@media (max-width: 991.98px) {
-    .single-post-articles__slide {
-        flex: 0 0 100%; /* або 100%, як тобі зручніше */
-    }
+	@media (min-width: 767.98px) {
+		.swiper,
+		.swiper-wrapper,
+		.swiper-slide {
+			display: contents;
+		}
+	}
 }
