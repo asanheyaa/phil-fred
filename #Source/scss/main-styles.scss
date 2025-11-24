@@ -359,6 +359,11 @@ body {
 		}
 		& .header-menu__link {
 			color: #fff;
+			@media (any-hover: hover) {
+			&:hover {
+				color: #e5193a;
+			}
+		}
 		}
 		& .header-menu__link.button {
 			color: #fff;

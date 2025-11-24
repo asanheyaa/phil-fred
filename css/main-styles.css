@@ -485,6 +485,11 @@ body._lock {
 .header.header-on-scroll .header-menu__link {
   color: #fff;
 }
+@media (any-hover: hover) {
+  .header.header-on-scroll .header-menu__link:hover {
+    color: #e5193a;
+  }
+}
 .header.header-on-scroll .header-menu__link.button {
   color: #fff;
   border-color: #fff;
