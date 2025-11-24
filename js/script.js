@@ -388,7 +388,7 @@ if (aboutImages) {
 
 if (typeof Swiper !== 'undefined') {
 	const swiperPromotions = new Swiper('.actions-blog-hero__swiper', {
-		loop:true,
+		loop: true,
 		autoplay: {
 			delay: 5000,
 		},
@@ -428,10 +428,10 @@ if (typeof Swiper !== 'undefined') {
 const articlesWrappers = document.querySelectorAll('.article__wrapper-anim');
 
 if (articlesWrappers) {
-	
+
 	articlesWrappers.forEach(articlesWrapper => {
 		const articles = articlesWrapper.querySelectorAll('.article');
-		
+
 		let blogArticlesTl = gsap.timeline({
 			scrollTrigger: {
 				start: 'top bottom',
@@ -439,76 +439,78 @@ if (articlesWrappers) {
 			},
 		})
 			.from(articles, {
-				
+
 				autoAlpha: 0,
 				duration: 1,
 				stagger: .3
 			})
 			.fromTo('.blog-hero-articles__button', {
-		
+
 				autoAlpha: 0,
 			}, {
 				autoAlpha: 1,
 				duration: 1,
 			})
 	});
-	
+
 }
 
 
 // ==============================================================================================================================================================
 // single post page
 
-document.addEventListener("DOMContentLoaded", function () {
-	const swiperEl = document.querySelector(".single-post-articles__swiper");
-	let mobileSwiper = null;
+const swiperEl = document.querySelector(".single-post-articles__swiper");
+if (swiperEl) {
+	if (typeof Swiper !== 'undefined') {
+		document.addEventListener("DOMContentLoaded", function () {
+			let mobileSwiper = null;
 
-	function initMobileSwiper() {
-		const isMobile = window.innerWidth <= 767.98;
+			function initMobileSwiper() {
+				const isMobile = window.innerWidth <= 767.98;
 
-		if (isMobile && !mobileSwiper) {
-			mobileSwiper = new Swiper(swiperEl, {
-				
-				spaceBetween: 24,
+				if (isMobile && !mobileSwiper) {
+					mobileSwiper = new Swiper(swiperEl, {
 
-				speed: 1000,
-				navigation: {
-					nextEl: '.actions-blog-hero__button-next',
+						spaceBetween: 24,
 
-				},
+						speed: 1000,
+						navigation: {
+							nextEl: '.single-post-articles__button-next',
+						},
 
-				breakpoints: {
-					320: {
-						slidesPerView: 1.05,
-					},
-					500: {
-						slidesPerView: 1.2,
-					},
-					630: {
-						slidesPerView: 1.5,
-					},
-					767.98: {
-						slidesPerView: 2.5,
-					},
-				},
+						breakpoints: {
+							320: {
+								slidesPerView: 1,
+							},
+							380: {
+								slidesPerView: 1.2,
+							},
+							500: {
+								slidesPerView: 1.5,
+							},
+							630: {
+								slidesPerView: 2,
+							},
+
+						},
+					});
+
+				} else if (!isMobile && mobileSwiper) {
+					mobileSwiper.destroy(true, true);
+					mobileSwiper = null;
+				}
+			}
+
+			initMobileSwiper();
+
+			let resizeTimeout;
+			window.addEventListener("resize", () => {
+				clearTimeout(resizeTimeout);
+				resizeTimeout = setTimeout(initMobileSwiper, 100);
 			});
-
-		} else if (!isMobile && mobileSwiper) {
-			mobileSwiper.destroy(true, true); 
-			mobileSwiper = null;
-		}
+		});
 	}
-
-	initMobileSwiper();
-
-	let resizeTimeout;
-	window.addEventListener("resize", () => {
-		clearTimeout(resizeTimeout);
-		resizeTimeout = setTimeout(initMobileSwiper, 100);
-	});
-});
-
-
+}
 // A function that moves elements to other blocks depending on the size of the screen. (Used when adapting the page to different devices.)
 function dynamicAdaptiv() {
 	class DynamicAdapt {

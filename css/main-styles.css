@@ -3536,10 +3536,20 @@ body._lock {
     display: block;
   }
 }
+@media (max-width: 767.98px) {
+  .single-post-articles .article__wrapper .swiper {
+    overflow: visible;
+  }
+}
 @media (min-width: 767.98px) {
   .single-post-articles .swiper,
   .single-post-articles .swiper-wrapper,
   .single-post-articles .swiper-slide {
     display: contents;
+  }
+}
+@media (min-width: 767.98px) {
+  .single-post-articles .nav-swiper {
+    display: none;
   }
 }

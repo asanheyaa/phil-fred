@@ -2532,6 +2532,11 @@ body {
 		@media (max-width: 767.98px) {
 			display: block;
 		}
+		.swiper{
+			@media (max-width:767.98px) {
+				overflow: visible;
+			}
+		}
 	}
 
 	@media (min-width: 767.98px) {
@@ -2539,6 +2544,11 @@ body {
 		.swiper-wrapper,
 		.swiper-slide {
 			display: contents;
+		}
+	}
+	.nav-swiper{
+		@media (min-width:767.98px) {
+			display: none;
 		}
 	}
 }
