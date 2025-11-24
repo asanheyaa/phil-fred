@@ -374,6 +374,8 @@ body._lock {
 
 .header {
   padding: 0.875rem 0;
+}
+.header:not(.header-static) {
   position: absolute;
   width: 100%;
   top: 0;
@@ -423,6 +425,9 @@ body._lock {
   .header-dark .header-menu__link {
     color: #1d1d1d;
   }
+}
+.header-dark.header-bb {
+  border-color: rgba(0, 0, 0, 0.59);
 }
 .header__container {
   display: -webkit-box;
@@ -3552,4 +3557,177 @@ body._lock {
   .single-post-articles .nav-swiper {
     display: none;
   }
+}
+
+.geolocation__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 48px;
+}
+@media (max-width: 1536px) {
+  .geolocation__container {
+    gap: calc(16px + 32 * (100vw - 390px) / 1146);
+  }
+}
+.action-geolocation {
+  padding-top: 56px;
+}
+@media (max-width: 1536px) {
+  .action-geolocation {
+    padding-top: calc(24px + 32 * (100vw - 390px) / 1146);
+  }
+}
+.action-geolocation__title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 104%;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+@media (max-width: 1536px) {
+  .action-geolocation__title {
+    font-size: calc(38px + 12 * (100vw - 390px) / 1146);
+  }
+}
+@media (max-width: 1536px) {
+  .action-geolocation__title {
+    margin-bottom: calc(20px + -4 * (100vw - 390px) / 1146);
+  }
+}
+.action-geolocation__title span {
+  color: #e5193a;
+}
+.action-geolocation__input {
+  display: block;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  border: 0.125rem solid #636363;
+  border-radius: 0.5rem;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  font-size: 1rem;
+}
+.action-geolocation__input::-webkit-input-placeholder {
+  color: #636363;
+}
+.action-geolocation__input::-moz-placeholder {
+  color: #636363;
+}
+.action-geolocation__input:-ms-input-placeholder {
+  color: #636363;
+}
+.action-geolocation__input::-ms-input-placeholder {
+  color: #636363;
+}
+.action-geolocation__input::placeholder {
+  color: #636363;
+}
+.action-geolocation__input:focus {
+  border-color: #e5193a;
+}
+.action-geolocation__body {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.action-geolocation__icon {
+  position: absolute;
+  top: 50%;
+  right: 1.6875rem;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  color: #636363;
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.action-geolocation__icon svg {
+  width: 20px;
+  height: 20px;
+}
+.action-geolocation__button-route {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 114%;
+  text-transform: uppercase;
+  color: #1d1d1d;
+  border: 1px solid #1d1d1d;
+  border-radius: 0.5rem;
+  padding-block: 6px;
+  padding-inline: 0.625rem;
+  background: #fff;
+}
+@media (max-width: 1536px) {
+  .action-geolocation__button-route {
+    font-size: calc(13px + 1 * (100vw - 390px) / 1146);
+  }
+}
+@media (max-width: 1536px) {
+  .action-geolocation__button-route {
+    padding-block: calc(4px + 2 * (100vw - 390px) / 1146);
+  }
+}
+.action-geolocation__results {
+  margin-top: 2rem;
+}
+.action-geolocation__list {
+  background: #1d1d1d;
+  border-radius: 0.5rem 0.5rem 0 0;
+  overflow: hidden;
+}
+.action-geolocation__item {
+  background: #1d1d1d;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+}
+.action-geolocation__item._active {
+  background: #e5193a;
+}
+.action-geolocation__wrapper {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.action-geolocation__wrapper::before {
+  content: "";
+  position: absolute;
+  width: 0.125rem;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+.action-geolocation__address {
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-style: normal;
+}
+@media (max-width: 1536px) {
+  .action-geolocation__address {
+    font-size: calc(14px + 2 * (100vw - 390px) / 1146);
+  }
+}
+.action-geolocation__shedule {
+  font-weight: 400;
+  font-size: 16px;
+}
+@media (max-width: 1536px) {
+  .action-geolocation__shedule {
+    font-size: calc(13px + 3 * (100vw - 390px) / 1146);
+  }
+}
+.action-geolocation__footer {
+  text-align: right;
 }

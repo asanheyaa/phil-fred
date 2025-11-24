@@ -511,6 +511,13 @@ if (swiperEl) {
 		});
 	}
 }
+
+//==================================================================================================================================================================
+
+// page geo search
+
+
+
 // A function that moves elements to other blocks depending on the size of the screen. (Used when adapting the page to different devices.)
 function dynamicAdaptiv() {
 	class DynamicAdapt {

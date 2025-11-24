@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Phil & Fred pizzeria">
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto+Condensed:regular,500,600,700,500italic,700italic&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,500,600&display=swap" rel="stylesheet" />
+
+    <link rel='stylesheet' href='css/swiper.min.css'>
+    <link rel="stylesheet" href="css/main-styles.css">
+    <title>Phil & Fred pizzeria</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header header-static header-dark header-bb">
+            <div class="header__container">
+                <a href="/" aria-label="home-page link" class="header__logo header__logo-sd">
+                    <img class="header__logo-dark" src="img/main/logo-dark.svg" alt="logo-dark">
+                    <img class="header__logo-white" src="img/main/logo-white.svg" alt="logo-white">
+                </a>
+                <nav class='header-menu'>
+                    <ul class='header-menu__list'>
+                        <li class='header-menu__item'>
+                            <a href='' class='header-menu__link'>Á PROPOS</a>
+                        </li>
+                        <li class='header-menu__item'>
+                            <a href='' class='header-menu__link'>points de vente</a>
+                        </li>
+                        <li class='header-menu__item'>
+                            <a href='' class='header-menu__link'>BLOGUE</a>
+                        </li>
+                        <li class='header-menu__item'>
+                            <a href='' class='header-menu__link button'>commander en ligne</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class='burger-menu'>
+                    <span class='burger-menu__line burger-menu__line_1'></span>
+                    <span class='burger-menu__line burger-menu__line_2'></span>
+                    <span class='burger-menu__line burger-menu__line_3'></span>
+                </button>
+            </div>
+        </header>
+        <main class="page">
+            <section class='geolocation' aria-labelledby='geolocation-title'>
+                <div class='geolocation__container'>
+                    <div class="action-geolocation">
+                        <h1 class="action-geolocation__title" id="action-geolocation-title">
+                            Trouver UN <span>resto</span>
+                        </h1>
+                        <form action="#" class="action-geolocation__form">
+                            <div class="action-geolocation__body">
+                                <input placeholder="Entrez votre adresse ou code postal" type="text"
+                                    class="action-geolocation__input">
+                                <div class="action-geolocation__icon">
+                                    <svg width="20" height="20">
+                                        <use xlink:href='img/main/icons-sprite.svg#search-icon'></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="action-geolocation__button button button-diff button-diff-dark-mode">
+                                <span>
+                                    géolocaliser
+                                </span>
+                                <svg width="21" height="21">
+                                    <use xlink:href='img/main/icons-sprite.svg#location-icon'></use>
+                                </svg>
+                            </button>
+                        </form>
+                        <div class="action-geolocation__label">
+                            Essayez de rechercher un lieu ou zoomez pour voir les résultats.
+                        </div>
+                        <div class="action-geolocation__results">
+                            <ul class="action-geolocation__list">
+                                <li class="action-geolocation__item _active">
+                                    <div class="action-geolocation__wrapper">
+                                        <div class="action-geolocation__name">
+                                            Provigo Avenue du Parc
+                                        </div>
+                                        <address class="action-geolocation__address">
+                                            3421, Avenue du Parc, Montréal, Québec H2X 2H6, Canada
+                                        </address>
+                                        <div class="action-geolocation__shedule">
+                                            Ouvert jusqu’à 22h00
+                                        </div>
+                                        <div class="action-geolocation__footer">
+                                            <button class="action-geolocation__button-route" type="button">
+                                                Itinéraire
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="action-geolocation__item">
+                                    <div class="action-geolocation__wrapper">
+                                        <div class="action-geolocation__name">
+                                            Provigo Avenue du Parc
+                                        </div>
+                                        <address class="action-geolocation__address">
+                                            3421, Avenue du Parc, Montréal, Québec H2X 2H6, Canada
+                                        </address>
+                                        <div class="action-geolocation__shedule">
+                                            Ouvert jusqu’à 22h00
+                                        </div>
+                                        <button class="action-geolocation__button action-geolocation__button-route"
+                                            type="button">
+                                            Itinéraire
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="action-geolocation__item">
+                                    <div class="action-geolocation__wrapper">
+                                        <div class="action-geolocation__name">
+                                            Provigo Avenue du Parc
+                                        </div>
+                                        <address class="action-geolocation__address">
+                                            3421, Avenue du Parc, Montréal, Québec H2X 2H6, Canada
+                                        </address>
+                                        <div class="action-geolocation__shedule">
+                                            Ouvert jusqu’à 22h00
+                                        </div>
+                                        <div class="action-geolocation__footer">
+                                            <button class="action-geolocation__button action-geolocation__button-route"
+                                                type="button">
+                                                Itinéraire
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="geolocation__map">
+                        <img src="img/main/map.jpg" alt="map">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer footer-dark">
+            <div class="footer__container">
+                <div class="footer__body">
+                    <div class="info-footer">
+                        <div class="info-footer__back ibg">
+                            <img src="img/footer/circle-label.png" alt="circle-label">
+                        </div>
+                        <div class="info-footer__body">
+                            <h2 class="info-footer__title">
+                                Contactez-nous !
+                            </h2>
+                            <div class="info-footer__items">
+                                <div class="info-footer__item">
+                                    <div class="info-footer__icon">
+                                        <svg width="19" height="19">
+                                            <use xlink:href='img/main/icons-sprite.svg#phone-icon'></use>
+                                        </svg>
+                                    </div>
+                                    <a href="tel:4503489555" class="info-footer__value">
+                                        450 348 9555
+                                    </a>
+                                </div>
+                                <address class="info-footer__item">
+                                    <div class="info-footer__icon">
+                                        <svg width="18" height="19">
+                                            <use xlink:href='img/main/icons-sprite.svg#address-icon'></use>
+                                        </svg>
+                                    </div>
+                                    <div class="info-footer__value">
+                                        240 1A BOULEVARD SAINT-LUC
+                                    </div>
+                                </address>
+                                <div class="info-footer__schedule">
+                                    <div class="info-footer__item">
+                                        <div class="info-footer__value">
+                                            <span>
+                                                Lundi - Jeudi
+                                            </span>
+                                            11h00 – 22h00
+                                        </div>
+                                    </div>
+                                    <div class="info-footer__item">
+                                        <div class="info-footer__value">
+                                            <span>
+                                                Vendredi - SamedI
+                                            </span>
+                                            11h00 – 24h00
+                                        </div>
+                                    </div>
+                                    <div class="info-footer__item">
+                                        <div class="info-footer__value">
+                                            <span>
+                                                Dimanche
+                                            </span>
+                                            12h00 – 22h00
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-footer__socials">
+                                <ul class="info-footer__list">
+                                    <li class="info-footer__point">
+                                        <a href="" class="info-footer__button" aria-label="instagram">
+                                            <svg width="20" height="20">
+                                                <use xlink:href='img/main/icons-sprite.svg#social-icon_01'></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="info-footer__point">
+                                        <a href="" class="info-footer__button" aria-label="facebook">
+                                            <svg width="20" height="20">
+                                                <use xlink:href='img/main/icons-sprite.svg#social-icon_02'></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-footer__copy" data-da=".footer__body,992,last">
+                                © 2025 .
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions-footer">
+                        <h3 class="actions-footer__title">
+                            Trouver UN POINT DE VENTE proche de moi
+                        </h3>
+                        <form action="#" class="actions-footer__form">
+                            <div class="actions-footer__body">
+                                <input placeholder="Entrez votre adresse ou code postal" type="text"
+                                    class="actions-footer__input">
+                                <div class="actions-footer__icon">
+                                    <svg width="20" height="20">
+                                        <use xlink:href='img/main/icons-sprite.svg#search-icon'></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="actions-footer__button button button-diff button-diff-dark-mode">
+                                <span>
+                                    géolocaliser
+                                </span>
+                                <svg width="21" height="21">
+                                    <use xlink:href='img/main/icons-sprite.svg#location-icon'></use>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="footer__logo">
+                        <img class="footer__logo-dark" src="img/main/logo-dark.svg" alt="logo">
+                        <img class="footer__logo-white" src="img/main/logo-white.svg" alt="logo">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/gsap-scrollTrigger.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

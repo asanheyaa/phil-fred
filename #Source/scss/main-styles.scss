@@ -249,11 +249,14 @@ body {
 
 .header {
 	padding: 0.875rem 0;
-	position: absolute;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 100;
+
+	&:not(.header-static) {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 100;
+	}
 	@media (max-width: 47.9988rem) {
 		border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.59);
 	}
@@ -297,6 +300,9 @@ body {
 			.header-menu__link {
 				color: #1d1d1d;
 			}
+		}
+		&.header-bb {
+			border-color: rgba(0, 0, 0, 0.59);
 		}
 	}
 	&__container {
@@ -2532,8 +2538,8 @@ body {
 		@media (max-width: 767.98px) {
 			display: block;
 		}
-		.swiper{
-			@media (max-width:767.98px) {
+		.swiper {
+			@media (max-width: 767.98px) {
 				overflow: visible;
 			}
 		}
@@ -2546,9 +2552,144 @@ body {
 			display: contents;
 		}
 	}
-	.nav-swiper{
-		@media (min-width:767.98px) {
+	.nav-swiper {
+		@media (min-width: 767.98px) {
 			display: none;
 		}
 	}
+}
+
+//==========================================================================================================================================================
+
+.geolocation {
+	&__container {
+		display: flex;
+		@include adaptiveValue(gap, 48, 16);
+	}
+
+	&__map {
+	}
+}
+.action-geolocation {
+	@include adaptiveValue(padding-top, 56, 24);
+	&__title {
+		font-family: "Roboto Condensed", sans-serif;
+		font-weight: 600;
+		@include adaptiveValue(font-size, 50, 38);
+		line-height: 104%;
+		text-transform: uppercase;
+		@include adaptiveValue(margin-bottom, 16, 20);
+		span {
+			color: #e5193a;
+		}
+	}
+
+	&__input {
+		display: block;
+		width: 100%;
+		padding: 1.5rem 1rem;
+		border: 0.125rem solid #636363;
+		border-radius: 0.5rem;
+		transition: all 0.3s ease 0s;
+		font-size: 1rem;
+		&::placeholder {
+			color: #636363;
+		}
+		&:focus {
+			border-color: #e5193a;
+		}
+	}
+
+	&__body {
+		position: relative;
+		margin-bottom: 1rem;
+	}
+
+	&__icon {
+		position: absolute;
+		top: 50%;
+		right: 1.6875rem;
+		transform: translate(0, -50%);
+		color: #636363;
+		@include svgSizes(20, 20);
+	}
+
+	&__button {
+		&-route {
+			font-family: "Roboto Condensed", sans-serif;
+			font-weight: 700;
+			@include adaptiveValue(font-size, 14, 13);
+			line-height: 114%;
+			text-transform: uppercase;
+			color: #1d1d1d;
+			border: 1px solid #1d1d1d;
+			border-radius: 0.5rem;
+			@include adaptiveValue(padding-block, 6, 4);
+			padding-inline: 0.625rem;
+			background: #fff;
+		}
+	}
+
+	&__label {
+	}
+
+	&__results {
+		margin-top: 2rem;
+	}
+
+	&__list {
+		background: #1d1d1d;
+		border-radius: 0.5rem 0.5rem 0 0;
+		overflow: hidden;
+	}
+
+	&__item {
+		background: #1d1d1d;
+		color: #fff;
+		border-radius: 0.5rem;
+		padding: 1rem 1.5rem 1rem 1.5rem;
+		&._active {
+			background: #e5193a;
+		}
+	}
+
+	&__wrapper {
+		position: relative;
+		padding-left: 1.5rem;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 0.125rem;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: #fff;
+		}
+	}
+
+	&__name {
+	}
+
+	&__address {
+		font-weight: 400;
+		@include adaptiveValue(font-size, 16, 14);
+		text-transform: capitalize;
+		font-style: normal;
+	}
+
+	&__shedule {
+		font-weight: 400;
+		@include adaptiveValue(font-size, 16, 13);
+		
+	}
+
+	&__footer {
+		text-align: right;
+	}
+}
+.button {
+}
+.button-diff {
+}
+.button-diff-dark-mode {
 }
