@@ -24,6 +24,7 @@ body {
 	@include adaptiveValue(font-size, 20, 18);
 	line-height: 140%;
 	color: #1d1d1d;
+	-webkit-font-smoothing: antialiased;
 	&._lock {
 		overflow: hidden;
 	}
@@ -249,36 +250,39 @@ body {
 
 .header {
 	padding: 0.875rem 0;
-	position: relative;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
 	z-index: 100;
-
-	&:not(.header-static) {
-		position: absolute;
-		width: 100%;
-		top: 0;
-		left: 0;
+	transition: background 0.3s ease 0s;
+	&.header-logo-anim._active {
+		.header__logo-dark {
+			display: none;
+		}
+		.header__logo-white {
+			display: block;
+		}
 	}
+	&.header-logo-anim-alt._active {
+		.header__logo-dark {
+			display: block;
+			opacity: 1 !important;
+			visibility: visible !important;
+		}
+		.header__logo-white {
+			display: none;
+		}
+	}
+	
+
 	@media (max-width: 47.9988rem) {
 		border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.59);
 	}
 	&-bb {
 		border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.59);
 	}
-	&-white {
-		& .header-menu__link {
-			color: #fff;
-		}
-		& .header-menu__link.button {
-			color: #fff;
-			border-color: #fff;
-			@media (any-hover: hover) {
-				&:hover {
-					border-color: #e5193a;
-					color: #e5193a;
-				}
-			}
-		}
-	}
+
 	&-dark {
 		& .header-menu__link {
 			color: #1d1d1d;
@@ -313,7 +317,65 @@ body {
 		gap: 0.9375rem;
 		max-width: 85.875rem;
 	}
+	&-white {
+		& .header-menu {
+			@media (max-width: 1250px) {
+				background: #1d1d1d;
+			}
+		}
+		& .header-menu__link {
+			color: #fff;
+		}
+		& .header-menu__link.button {
+			color: #fff;
+			border-color: #fff;
+			@media (any-hover: hover) {
+				&:hover {
+					border-color: #e5193a;
+					color: #e5193a;
+				}
+			}
+		}
+		.burger-menu__line {
+			@media (max-width: 1250px) {
+				background: #fff;
+			}
+		}
+	}
 
+	&.header-on-scroll {
+		background: #1d1d1d;
+		border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.59);
+		.header__logo .header__logo-dark {
+			display: none;
+		}
+		.header__logo .header__logo-white {
+			display: block;
+		}
+		& .header-menu {
+			@media (max-width: 1250px) {
+				background: #1d1d1d;
+			}
+		}
+		& .header-menu__link {
+			color: #fff;
+		}
+		& .header-menu__link.button {
+			color: #fff;
+			border-color: #fff;
+			@media (any-hover: hover) {
+				&:hover {
+					border-color: #e5193a;
+					color: #e5193a;
+				}
+			}
+		}
+		.burger-menu__line {
+			@media (max-width: 1250px) {
+				background: #fff;
+			}
+		}
+	}
 	&__logo {
 		position: relative;
 		z-index: 5;
@@ -342,7 +404,7 @@ body {
 			}
 		}
 		.header__logo-dark-anim.header__logo-dark {
-			@media (min-width: 767.98px) {
+			@media (min-width: 47.9988rem) {
 				display: block;
 			}
 			opacity: 0;
@@ -372,9 +434,6 @@ body {
 		overflow: auto;
 		&._active {
 			left: 0%;
-		}
-		@media (max-width: 767.98px) {
-			background: #1d1d1d;
 		}
 	}
 	&__list {
@@ -418,15 +477,15 @@ body {
 
 .burger-menu {
 	display: none;
-	width: 30px;
-	height: 16px;
+	width: 1.875rem;
+	height: 1rem;
 	background: transparent;
 	position: relative;
 	z-index: 3;
 	&._active {
 		.burger-menu__line_2 {
 			width: 0;
-			transition: all 0s ease 0.3s;
+			transition: width 0s ease 0.3s;
 		}
 		.burger-menu__line_1 {
 			position: absolute;
@@ -471,7 +530,7 @@ body {
 			top: 50%;
 			left: 0;
 			transform: translate(0, -50%);
-			transition: all 0s ease 0.3s;
+			transition: width 0s ease 0.3s;
 		}
 
 		&_3 {
@@ -1636,7 +1695,7 @@ body {
 		}
 	}
 	&-alt {
-		@media (min-width:991.98px) {
+		@media (min-width: 991.98px) {
 			display: none;
 		}
 		&.footer-dark {
@@ -1644,8 +1703,8 @@ body {
 				color: #fff;
 			}
 			.info-footer__icon {
-			color: #fff;
-		}
+				color: #fff;
+			}
 		}
 		.info-footer__value {
 			color: #1d1d1d;
@@ -2019,14 +2078,14 @@ body {
 		top: 0;
 		left: 0;
 		z-index: 1;
+		img {
+			object-position: right top;
+		}
 	}
 
 	&__container {
 		position: relative;
 		z-index: 2;
-		img {
-			object-position: right center;
-		}
 	}
 
 	// .about-story__title
@@ -2636,6 +2695,7 @@ body {
 //==========================================================================================================================================================
 
 .geolocation {
+	@include adaptiveValue(padding-top, 76, 92);
 	&__container {
 		@media (min-width: 991.98px) {
 			display: flex;
@@ -2762,7 +2822,7 @@ body {
 		@media (max-width: 47.9988rem) {
 			padding-bottom: 10.0625rem;
 		}
-		&-located{
+		&-located {
 			display: flex;
 			align-items: center;
 			gap: 0.5rem;

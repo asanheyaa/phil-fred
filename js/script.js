@@ -1,19 +1,32 @@
 // burger-menu
-const burgerMenu = document.querySelector('.burger-menu');
+const burgerMenu = document.querySelector('.burger-menu'),
+	header = document.querySelector('.header');
 burgerMenu.addEventListener('click', (e) => {
 	burgerMenu.classList.toggle('_active');
 	document.querySelector('.header-menu').classList.toggle('_active');
 	document.body.classList.toggle('_lock');
+	header.classList.toggle('_active')
 });
 
 
+// header amination
+
+window.addEventListener('scroll', (e)=>{
+	let scrollDistance = window.scrollY
+	if (scrollDistance > 10) {
+		header.classList.add('header-on-scroll')
+
+	} else {
+		header.classList.remove('header-on-scroll')
+	}
+})
 
 
 // hero home animation
 
 const firstSwithButton = document.querySelector('.hero-home__switcher-01'),
-	secondSwitchButton = document.querySelector('.hero-home__switcher-02'),
-	header = document.querySelector('.header');
+	secondSwitchButton = document.querySelector('.hero-home__switcher-02');
+
 
 
 
@@ -34,6 +47,7 @@ if (firstSwithButton) {
 			})
 			header.classList.add('header-dark')
 			header.classList.remove('header-white')
+			header.classList.add('header-logo-anim-alt')
 		},
 		onComplete: () => {
 			gsap.to('.hero-home__slide-02 .hero-home__pizza-image', {
@@ -52,6 +66,8 @@ if (firstSwithButton) {
 
 			header.classList.remove('header-dark')
 			header.classList.add('header-white')
+			header.classList.remove('header-logo-anim-alt')
+
 
 		},
 	});
@@ -77,7 +93,8 @@ if (firstSwithButton) {
 		homeHeroTl.reverse()
 		gsap.to('.header__logo-dark-anim', {
 			autoAlpha: 0,
-			duration: .5
+			duration: .5,
+			
 		})
 	})
 
@@ -523,7 +540,7 @@ if (selectionMenus) {
 		const selectionMenuItems = selectionMenu.querySelectorAll('[data-selection-menu-item]');
 
 		selectionMenuItems.forEach(selectionMenuItem => {
-			selectionMenuItem.addEventListener('click', (e)=>{
+			selectionMenuItem.addEventListener('click', (e) => {
 				const activeItem = selectionMenu.querySelector('[data-selection-menu-item]._active')
 				activeItem.classList.remove('_active');
 				selectionMenuItem.classList.add('_active')
