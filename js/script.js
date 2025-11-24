@@ -516,7 +516,21 @@ if (swiperEl) {
 
 // page geo search
 
+const selectionMenus = document.querySelectorAll('[data-selection-menu]');
 
+if (selectionMenus) {
+	selectionMenus.forEach(selectionMenu => {
+		const selectionMenuItems = selectionMenu.querySelectorAll('[data-selection-menu-item]');
+
+		selectionMenuItems.forEach(selectionMenuItem => {
+			selectionMenuItem.addEventListener('click', (e)=>{
+				const activeItem = selectionMenu.querySelector('[data-selection-menu-item]._active')
+				activeItem.classList.remove('_active');
+				selectionMenuItem.classList.add('_active')
+			})
+		});
+	});
+}
 
 // A function that moves elements to other blocks depending on the size of the screen. (Used when adapting the page to different devices.)
 function dynamicAdaptiv() {
