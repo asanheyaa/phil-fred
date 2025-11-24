@@ -2627,6 +2627,14 @@ body {
 			@include adaptiveValue(padding-block, 6, 4);
 			padding-inline: 0.625rem;
 			background: #fff;
+			opacity: 0;
+			visibility: hidden;
+		transition: color 0.3s ease 0s;
+			@media (any-hover: hover){
+				&:hover{
+					color: #e5193a;
+				}
+			}
 		}
 	}
 
@@ -2650,6 +2658,12 @@ body {
 		padding: 1rem 1.5rem 1rem 1.5rem;
 		&._active {
 			background: #e5193a;
+			.action-geolocation__button-route {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		&:not(._active) {
 		}
 	}
 
@@ -2668,6 +2682,7 @@ body {
 	}
 
 	&__name {
+		margin-bottom: 0.25rem;
 	}
 
 	&__address {
@@ -2675,12 +2690,31 @@ body {
 		@include adaptiveValue(font-size, 16, 14);
 		text-transform: capitalize;
 		font-style: normal;
+		@include adaptiveValue(margin-bottom, 14, 8);
 	}
 
 	&__shedule {
 		font-weight: 400;
 		@include adaptiveValue(font-size, 16, 13);
-		
+		line-height: 1;
+		@include adaptiveValue(margin-bottom, 12, 8);
+		&::before {
+			content: "";
+			display: inline-block;
+			margin-right: 0.5rem;
+			height: 0.5rem;
+			width: 0.5rem;
+			background: #66b07c;
+			border-radius: 50%;
+		}
+		&-close {
+			&::before {
+				background: #810217;
+			}
+		}
+		span {
+			font-weight: 600;
+		}
 	}
 
 	&__footer {

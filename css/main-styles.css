@@ -3667,6 +3667,10 @@ body._lock {
   padding-block: 6px;
   padding-inline: 0.625rem;
   background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
 }
 @media (max-width: 1536px) {
   .action-geolocation__button-route {
@@ -3676,6 +3680,11 @@ body._lock {
 @media (max-width: 1536px) {
   .action-geolocation__button-route {
     padding-block: calc(4px + 2 * (100vw - 390px) / 1146);
+  }
+}
+@media (any-hover: hover) {
+  .action-geolocation__button-route:hover {
+    color: #e5193a;
   }
 }
 .action-geolocation__results {
@@ -3695,6 +3704,10 @@ body._lock {
 .action-geolocation__item._active {
   background: #e5193a;
 }
+.action-geolocation__item._active .action-geolocation__button-route {
+  opacity: 1;
+  visibility: visible;
+}
 .action-geolocation__wrapper {
   position: relative;
   padding-left: 1.5rem;
@@ -3708,25 +3721,56 @@ body._lock {
   left: 0;
   background: #fff;
 }
+.action-geolocation__name {
+  margin-bottom: 0.25rem;
+}
 .action-geolocation__address {
   font-weight: 400;
   font-size: 16px;
   text-transform: capitalize;
   font-style: normal;
+  margin-bottom: 14px;
 }
 @media (max-width: 1536px) {
   .action-geolocation__address {
     font-size: calc(14px + 2 * (100vw - 390px) / 1146);
   }
 }
+@media (max-width: 1536px) {
+  .action-geolocation__address {
+    margin-bottom: calc(8px + 6 * (100vw - 390px) / 1146);
+  }
+}
 .action-geolocation__shedule {
   font-weight: 400;
   font-size: 16px;
+  line-height: 1;
+  margin-bottom: 12px;
 }
 @media (max-width: 1536px) {
   .action-geolocation__shedule {
     font-size: calc(13px + 3 * (100vw - 390px) / 1146);
   }
+}
+@media (max-width: 1536px) {
+  .action-geolocation__shedule {
+    margin-bottom: calc(8px + 4 * (100vw - 390px) / 1146);
+  }
+}
+.action-geolocation__shedule::before {
+  content: "";
+  display: inline-block;
+  margin-right: 0.5rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  background: #66b07c;
+  border-radius: 50%;
+}
+.action-geolocation__shedule-close::before {
+  background: #810217;
+}
+.action-geolocation__shedule span {
+  font-weight: 600;
 }
 .action-geolocation__footer {
   text-align: right;
